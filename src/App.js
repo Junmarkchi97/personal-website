@@ -9,33 +9,33 @@ function App() {
 
   // useEffect(() => {}, []);
 
-  window.onmousemove = (e) => {
-    const mouseX = e.clientX,
-      mouseY = e.clientY;
+  // window.onmousemove = (e) => {
+  //   const mouseX = e.clientX,
+  //     mouseY = e.clientY;
 
-    const xDecimal = mouseX / window.innerWidth,
-      yDecimal = mouseY / window.innerHeight;
+  //   const xDecimal = mouseX / window.innerWidth,
+  //     yDecimal = mouseY / window.innerHeight;
 
-    const maxX = background.current.offsetWidth - window.innerWidth,
-      maxY = background.current.offsetHeight - window.innerHeight;
+  //   const maxX = background.current.offsetWidth - window.innerWidth,
+  //     maxY = background.current.offsetHeight - window.innerHeight;
 
-    const panX = maxX * xDecimal * -1,
-      panY = maxY * yDecimal * -1;
+  //   const panX = maxX * xDecimal * -1,
+  //     panY = maxY * yDecimal * -1;
 
-    // menu.current.style.transform = `translate(${xDecimal}px, ${yDecimal}px)`;
-    // console.log(background)
+  //   // menu.current.style.transform = `translate(${xDecimal}px, ${yDecimal}px)`;
+  //   // console.log(background)
 
-    // background.current.animate(
-    //   {
-    //     transform: `translate(${panX}px, ${panY}px)`,
-    //   },
-    //   {
-    //     duration: 4000,
-    //     fill: "forwards",
-    //     easing: "ease",
-    //   }
-    // );
-  };
+  //   // background.current.animate(
+  //   //   {
+  //   //     transform: `translate(${panX}px, ${panY}px)`,
+  //   //   },
+  //   //   {
+  //   //     duration: 4000,
+  //   //     fill: "forwards",
+  //   //     easing: "ease",
+  //   //   }
+  //   // );
+  // };
 
   const hoverEffects = (e) => {
     menu.current.dataset.activeIndex = e.target.id;
