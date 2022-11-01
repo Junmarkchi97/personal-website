@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(20, 20, 20);
+  margin: 0;
+  padding: 0;
+
+  #menu {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+    &[data-active-index="0"] > #menu-background-pattern {
+      background-position: 0% -25%;
+    }
+
+    &[data-active-index="1"] > #menu-background-pattern {
+      background-position: 0% -50%;
+    }
+
+    &[data-active-index="2"] > #menu-background-pattern {
+      background-position: 0% -75%;
+    }
+
+    &[data-active-index="3"] > #menu-background-pattern {
+      background-position: 0% -100%;
+    }
+
+    #menu-items {
+      margin-left: clamp(4rem, 20vw, 48rem);
+      position: relative;
+      z-index: 2;
+
+      &:hover ~ #menu-background-pattern {
+        background-size: 11vmin 11vmin;
+        opacity: 0.5;
+      }
+
+      &:hover > .menu-item {
+        opacity: 0.3;
+      }
+
+      &:hover > .menu-item:hover {
+        opacity: 1;
+      }
+
+      .menu-item {
+        color: white;
+        font-size: clamp(3rem, 8vw, 8rem);
+        font-family: "Ibarra Real Nova", serif;
+
+        display: block;
+        text-decoration: none;
+        padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+        transition: opacity 400ms ease;
+      }
+    }
+
+    #menu-background-pattern {
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 1;
+
+      background-image: radial-gradient(
+        rgba(255, 255, 255, 0.1) 9%,
+        transparent 9%
+      );
+
+      background-position: 0% 0%;
+      background-size: 12vmin 12vmin;
+
+      transition: opacity 800ms, background-size 800ms,
+        background-position 800ms;
+    }
+  }
+}
