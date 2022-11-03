@@ -3,10 +3,11 @@ import "./styles/menu.scss";
 
 function App() {
   const menu = useRef(null);
+  const app = useRef(null);
   const menuItems = useRef([]);
   const menuContainer = useRef(null);
   const backgroundPattern = useRef(null);
-  const background2 = useRef(null);
+  const backgroundImage = useRef(null);
   const menuExit = useRef(null);
   const cursor = useRef(null);
   const menuArr = ["Home", "About Me", "Projects", "Contact"];
@@ -72,6 +73,11 @@ function App() {
     // );
   };
 
+  const menuExitHandler = () => {
+    menu.current.style.scale = "0.1";
+    menu.current.style.opacity = "0";
+  };
+
   const mouseLeaveHandler = () => {
     cursor.current.style.opacity = "0";
   };
@@ -80,11 +86,19 @@ function App() {
     cursor.current.style.opacity = "1";
   };
 
-  const clickHandler = (e) => {
+  const menuClickHandler = (e) => {
     e.target.classList.add("active");
     backgroundPattern.current.style.opacity = "0";
+    backgroundImage.current.style.opacity = "0";
+    menuExit.current.style.pointerEvents = "none";
+    menuExit.current.style.opacity = "0";
 
-    // menuExit.current.style.opacity = "0";
+    setTimeout(() => {
+      backgroundPattern.current.style.display = "none";
+      backgroundImage.current.style.display = "none";
+      menuExit.current.style.display = "none";
+    }, 800);
+
     menuContainer.current.style.pointerEvents = "none";
 
     menuItems.current.forEach((element) => {
@@ -105,49 +119,50 @@ function App() {
 
   return (
     <div
-      id="menu"
-      ref={menu}
+      id="app"
       onMouseLeave={mouseLeaveHandler}
       onMouseEnter={mouseEnterHandler}
     >
-      <div id="menu-items" ref={menuContainer}>
-        {menuArr.map((item, index) => {
-          return (
-            <div
-              className="menu-item"
-              key={index}
-              id={index}
-              ref={(element) => {
-                menuItems.current[index] = element;
-              }}
-              onMouseOver={(e) => hoverEffects(e)}
-              onMouseLeave={menuHoverChecker}
-              onClick={(e) => clickHandler(e)}
-            >
-              {item}
-            </div>
-          );
-        })}
+      <div id="menu" ref={menu}>
+        <div id="menu-items" ref={menuContainer}>
+          {menuArr.map((item, index) => {
+            return (
+              <div
+                className="menu-item"
+                key={index}
+                id={index}
+                ref={(element) => {
+                  menuItems.current[index] = element;
+                }}
+                onMouseOver={(e) => hoverEffects(e)}
+                onMouseLeave={menuHoverChecker}
+                onClick={(e) => menuClickHandler(e)}
+              >
+                {item}
+              </div>
+            );
+          })}
+        </div>
+        <div id="menu-logo" ref={menuExit} onClick={menuExitHandler}>
+          <span>
+            <i className="fa-solid fa-house"></i>
+          </span>
+          <span>
+            <i className="fa-solid fa-user"></i>
+          </span>
+          <span>
+            <i className="fa-solid fa-briefcase"></i>
+          </span>
+          <span>
+            <i className="fa-solid fa-phone"></i>
+          </span>
+          <span>
+            <i className="fa-solid fa-xmark"></i>
+          </span>
+        </div>
+        <div id="menu-background-pattern" ref={backgroundPattern}></div>
+        <div id="menu-background-image" ref={backgroundImage}></div>
       </div>
-      <div id="menu-logo" ref={menuExit}>
-        <span>
-          <i className="fa-solid fa-house"></i>
-        </span>
-        <span>
-          <i className="fa-solid fa-user"></i>
-        </span>
-        <span>
-          <i className="fa-solid fa-briefcase"></i>
-        </span>
-        <span>
-          <i className="fa-solid fa-phone"></i>
-        </span>
-        <span>
-          <i className="fa-solid fa-xmark"></i>
-        </span>
-      </div>
-      <div id="menu-background-pattern" ref={backgroundPattern}></div>
-      <div id="menu-background-image" ref={background2}></div>
       <i className="fa-solid fa-arrow-pointer" ref={cursor}></i>
     </div>
   );
