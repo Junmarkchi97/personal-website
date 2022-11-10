@@ -1,0 +1,215 @@
+@import "./variables.scss";
+@import "./menu.scss";
+
+html {
+  // cursor: none;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-black;
+  margin: 0;
+  padding: 0;
+  font-family: "FreeSans";
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+
+  .intro-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 800ms cubic-bezier(0.49, 1.09, 0.96, 0.97);
+
+    .intro-name,
+    .intro-title {
+      align-items: center;
+      text-align: center;
+      color: $color-white;
+      font-size: 2rem;
+      user-select: none;
+    }
+
+    .intro-name {
+      position: absolute;
+      animation: introName 2s linear 0s 1 normal forwards;
+      transition: 1000ms;
+    }
+
+    .intro-title {
+      animation: introTitle 1.5s ease-in-out 1.5s 1 normal forwards;
+      opacity: 0;
+      font-size: 1rem;
+      transition: 500ms ease;
+    }
+
+    @keyframes introName {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes introTitle {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .body {
+    width: 100%;
+    height: 70vh;
+
+    .work-container {
+      border-radius: 2rem;
+      height: 100%;
+      width: min(60%, 80em);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 20em);
+      overflow-y: scroll;
+      gap: 1.5em;
+      margin-inline: auto;
+      box-shadow: inset 0px 11px 18px -5px rgb(16, 16, 16),
+        inset 0px -11px 18px -5px rgb(16, 16, 16);
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        opacity: 0;
+      }
+
+      .grid-column-span-2 {
+        grid-column: span 2;
+        height: 100%;
+      }
+
+      .project1 {
+        border: 1px solid white;
+        border-radius: 2rem;
+        padding: 2rem;
+      }
+
+      .project2 {
+        border: 1px solid white;
+        border-radius: 2rem;
+        padding: 2rem;
+      }
+
+      .project3 {
+        border: 1px solid white;
+        padding: 2rem;
+        border-radius: 2rem;
+      }
+
+      .project4 {
+        border: 1px solid white;
+        padding: 2rem;
+
+        border-radius: 2rem;
+      }
+
+      .project5 {
+        border: 1px solid white;
+        padding: 2rem;
+        grid-column-start: 4;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        border-radius: 2rem;
+      }
+
+      .project6 {
+        border: 1px solid white;
+        padding: 2rem;
+
+        border-radius: 2rem;
+      }
+
+      .project7 {
+        border: 1px solid white;
+        padding: 2rem;
+
+        border-radius: 2rem;
+      }
+    }
+  }
+}
+
+.fa-arrow-pointer {
+  font-size: 1em;
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+  pointer-events: none;
+  color: $color-white;
+  text-shadow: 0 0 30px $primary-color;
+  transition: opacity 700ms ease;
+  opacity: 0;
+}
+
+@media (max-width: 800px) {
+  .fa-arrow-pointer {
+    display: none;
+  }
+
+  .nav {
+    font-size: 0.8em;
+  }
+}
+
+.nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-bottom: clamp(1rem, 20vmin, 2rem);
+
+  .nav-container {
+    width: auto;
+    gap: 1rem;
+    text-align: center;
+    border-radius: 5em;
+    padding: 1em;
+    backdrop-filter: blur(2px);
+    background: transparent;
+    box-shadow: 0 0 5px $color-white;
+    opacity: 0;
+    transition: opacity 1200ms ease-in-out;
+    user-select: none;
+
+    .nav-link {
+      padding: 0.5em 0.8em;
+      font-size: 1em;
+      color: $color-white;
+      border-radius: 5em;
+      gap: 1rem;
+      transition: background-color 200ms ease-in-out;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

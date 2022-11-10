@@ -1,82 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./styles/menu.scss";
+import "./styles/app.scss";
 
 function App() {
-  const menu = useRef(null);
   const app = useRef(null);
-  const menuItems = useRef([]);
-  const menuContainer = useRef(null);
-  const backgroundPattern = useRef(null);
-  const backgroundImage = useRef(null);
-  const menuExit = useRef(null);
+  const introName = useRef(null);
+  const introTitle = useRef(null);
+  const introContainer = useRef(null);
+  const nav = useRef(null);
+  const body = useRef(null);
+  const scrollTracker = useRef(null);
   const cursor = useRef(null);
-  const menuArr = ["Home", "About Me", "Projects", "Contact"];
-  const [isHover, setIsHover] = useState(false);
-  // useEffect(() => {}, []);
 
-  // window.onmousemove = (e) => {
-  //   const mouseX = e.clientX,
-  //     mouseY = e.clientY;
+  useEffect(() => {
+    setTimeout(() => {
+      introName.current.style.transform = "translateY(-30px)";
 
-  //   const xDecimal = mouseX / window.innerWidth,
-  //     yDecimal = mouseY / window.innerHeight;
-
-  //   const maxX = background2.current.offsetWidth - window.innerWidth,
-  //     maxY = background2.current.offsetHeight - window.innerHeight;
-
-  //   const panX = maxX * xDecimal * -1,
-  //     panY = maxY * yDecimal * -1;
-
-  //   // menu.current.style.transform = `translate(${xDecimal}px, ${yDecimal}px)`;
-  //   // console.log(background)
-
-  //   background2.current.animate(
-  //     {
-  //       transform: `translate(${panX}px, ${panY}px)`,
-  //     },
-  //     {
-  //       duration: 4000,
-  //       fill: "forwards",
-  //       easing: "ease",
-  //     }
-  //   );
-  // };
-
-  window.onmousemove = (e) => {
-    const mouseX = e.clientX,
-      mouseY = e.clientY;
-
-    const xDecimal = mouseX / window.innerWidth,
-      yDecimal = mouseY / window.innerHeight;
-
-    const maxX = menuContainer.current.offsetWidth - window.innerWidth,
-      maxY = menuContainer.current.offsetHeight - window.innerHeight;
-
-    const panX = maxX * xDecimal,
-      panY = maxY * yDecimal;
-
-    // backgroundPattern.current.style.backgroundPosition = `-${xDecimal * 10}% -${
-    //   yDecimal * 10
-    // }%`;
-
-    cursor.current.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    // console.log(xDecimal * 10, yDecimal * 10);
-    // menuContainer.current.animate(
-    //   {
-    //     transform: `translate(${panX + 100}px, ${panY + 200}px)`,
-    //   },
-    //   {
-    //     duration: 4000,
-    //     fill: "forwards",
-    //     easing: "ease",
-    //   }
-    // );
-  };
-
-  const menuExitHandler = () => {
-    menu.current.style.scale = "0.1";
-    menu.current.style.opacity = "0";
-  };
+      setTimeout(() => {
+        introContainer.current.style.height = "15%";
+        introContainer.current.style.scale = "0.8";
+        introTitle.current.style.color = "gray";
+        nav.current.style.opacity = "1";
+      }, 1800);
+    }, 1500);
+  }, []);
 
   const mouseLeaveHandler = () => {
     cursor.current.style.opacity = "0";
@@ -86,35 +32,8 @@ function App() {
     cursor.current.style.opacity = "1";
   };
 
-  const menuClickHandler = (e) => {
-    e.target.classList.add("active");
-    backgroundPattern.current.style.opacity = "0";
-    backgroundImage.current.style.opacity = "0";
-    menuExit.current.style.pointerEvents = "none";
-    menuExit.current.style.opacity = "0";
-
-    setTimeout(() => {
-      backgroundPattern.current.style.display = "none";
-      backgroundImage.current.style.display = "none";
-      menuExit.current.style.display = "none";
-    }, 800);
-
-    menuContainer.current.style.pointerEvents = "none";
-
-    menuItems.current.forEach((element) => {
-      if (element.id != e.target.id) {
-        element.classList.add("inactive");
-      }
-    });
-  };
-
-  const hoverEffects = (e) => {
-    menu.current.dataset.activeIndex = e.target.id;
-    menu.current.dataset.hover = true;
-  };
-
-  const menuHoverChecker = (e) => {
-    menu.current.dataset.hover = false;
+  const moustEnterBody = (e) => {
+    // cursor.current.style.scale = "1.5";
   };
 
   return (
@@ -122,48 +41,37 @@ function App() {
       id="app"
       onMouseLeave={mouseLeaveHandler}
       onMouseEnter={mouseEnterHandler}
+      ref={app}
     >
-      <div id="menu" ref={menu}>
-        <div id="menu-items" ref={menuContainer}>
-          {menuArr.map((item, index) => {
-            return (
-              <div
-                className="menu-item"
-                key={index}
-                id={index}
-                ref={(element) => {
-                  menuItems.current[index] = element;
-                }}
-                onMouseOver={(e) => hoverEffects(e)}
-                onMouseLeave={menuHoverChecker}
-                onClick={(e) => menuClickHandler(e)}
-              >
-                {item}
-              </div>
-            );
-          })}
+      {/* <i className="fa-solid fa-arrow-pointer" ref={cursor}></i> */}
+      <div className="intro-container" ref={introContainer}>
+        <div className="intro-name" ref={introName}>
+          JUNMARK CHI
         </div>
-        <div id="menu-logo" ref={menuExit} onClick={menuExitHandler}>
-          <span>
-            <i className="fa-solid fa-house"></i>
-          </span>
-          <span>
-            <i className="fa-solid fa-user"></i>
-          </span>
-          <span>
-            <i className="fa-solid fa-briefcase"></i>
-          </span>
-          <span>
-            <i className="fa-solid fa-phone"></i>
-          </span>
-          <span>
-            <i className="fa-solid fa-xmark"></i>
-          </span>
+        <div className="intro-title" ref={introTitle}>
+          WEB DEVELOPER
         </div>
-        <div id="menu-background-pattern" ref={backgroundPattern}></div>
-        <div id="menu-background-image" ref={backgroundImage}></div>
       </div>
-      <i className="fa-solid fa-arrow-pointer" ref={cursor}></i>
+      <div className="body" ref={body} onMouseEnter={moustEnterBody}>
+        <div className="work-container">
+          <div className="project1 grid-column-span-2"></div>
+          <div className="project2"></div>
+          <div className="project3"></div>
+          <div className="project4 grid-column-span-2"></div>
+          <div className="project5"></div>
+          <div className="project6"></div>
+          <div className="project7"></div>
+        </div>
+      </div>
+      <div className="scroll-tracker" ref={scrollTracker}></div>
+      <div className="nav">
+        <div className="nav-container" ref={nav}>
+          <a className="nav-link">Projects</a>
+          <a className="nav-link">Education</a>
+          <a className="nav-link">Contact</a>
+          <a className="nav-link">Resume</a>
+        </div>
+      </div>
     </div>
   );
 }
