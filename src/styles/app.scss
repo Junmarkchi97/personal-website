@@ -11,6 +11,7 @@ html {
 *::after {
   box-sizing: border-box;
   list-style: none;
+  text-decoration: none;
 }
 
 body {
@@ -81,7 +82,7 @@ body {
       box-shadow: 0px 10px 30px 30px $color-black;
       opacity: 0;
       z-index: 1;
-      transition: opacity 100ms ease;
+      transition: opacity 400ms ease;
     }
 
     .body-shade-bottom {
@@ -97,7 +98,7 @@ body {
       box-shadow: 0px -10px 30px 30px $color-black;
       opacity: 0;
       z-index: 1;
-      transition: opacity 100ms ease;
+      transition: opacity 400ms ease;
     }
 
     .project-container {
@@ -180,7 +181,7 @@ body {
         @for $i from 1 to 9 {
           &:nth-child(#{$i}) {
             animation: projectAnimation
-              0.4s
+              0.5s
               ease
               #{$i *
               0.1 +
@@ -231,7 +232,7 @@ body {
       width: auto;
       text-align: center;
       border-radius: 5em;
-      padding: 1em 2em;
+      padding: 0em 2em;
       backdrop-filter: blur(2px);
       background: transparent;
       box-shadow: 0 0 5px $color-white;
@@ -309,6 +310,52 @@ body {
         transition: background-color 200ms ease-in-out;
         cursor: pointer;
         user-select: none;
+        padding: 1em 0em;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1em;
+        padding-left: 1em;
+        position: relative;
+
+        &::before {
+          content: "";
+          height: 100%;
+          width: 1px;
+          position: absolute;
+          left: 0;
+          display: inline-block;
+          margin: auto;
+          z-index: 5;
+          background-color: white;
+          box-shadow: inset 0 0 4px black;
+        }
+
+        a {
+          width: 2em;
+          height: 2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .fa-github,
+          .fa-linkedin {
+            font-size: 2em;
+            color: white;
+            height: auto;
+            object-fit: contain;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 400ms $transition-cubic;
+
+            &:hover{
+              color: skyblue;
+              scale: 1.5;
+              transform: translateY(-10px);
+            }
+          }
+        }
       }
 
       .hover-dot {
@@ -353,7 +400,7 @@ body {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .body {
     display: flex;
     flex-direction: column;
@@ -367,9 +414,25 @@ body {
       //   width: 100%;
       // }
     }
+  }
 
-    .nav {
-      font-size: 0.8em;
+  .nav {
+    font-size: 0.7em;
+
+    .nav-container {
+      background-color: orange;
+      gap: 0.3;
+      padding: 0.5em;
+
+      .social-links {
+        display: flex;
+        gap: 0.5em;
+      }
+
+      .hover-dot,
+      .clicked {
+        display: none;
+      }
     }
   }
 }

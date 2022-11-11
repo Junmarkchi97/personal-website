@@ -117,7 +117,7 @@ function App() {
         </div>
         <div className="body-shade-bottom" ref={bodyShadeBottom}></div>
       </div>
-      <div className="scroll-tracker" ref={scrollTracker}></div>
+      {/* <div className="scroll-tracker" ref={scrollTracker}></div> */}
       <div className="nav">
         <div className="nav-container" ref={nav}>
           {navs.map((nav, index) => {
@@ -135,6 +135,18 @@ function App() {
               </div>
             );
           })}
+          <div className="social-links">
+            <a href="https://github.com/Junmarkchi97" target="_blank" id="4">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/junmarkchi/"
+              target="_blank"
+              id="5"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
           <div className="hover-dot"></div>
           <div className="clicked"></div>
         </div>
