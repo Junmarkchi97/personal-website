@@ -8,14 +8,14 @@ $color-black: rgb(20, 20, 20);
 $project-content: rgb(23, 23, 23);
 $color-white: #ffffff;
 $primary-color: #333333;
+$transition-cubic: cubic-bezier(0.77, 0, 0.175, 1);
 // #50577a;
-
 
 @mixin transition {
   @for $i from 1 through 8 {
     &:nth-child(#{$i}) {
       opacity: 1;
-      transition: all .2s #{$i * 2}s ease-in;
+      transition: all 0.2s #{$i * 2}s ease-in;
     }
   }
 }

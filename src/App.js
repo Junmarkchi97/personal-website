@@ -57,7 +57,20 @@ function App() {
 
   const handleOnClickNav = (e) => {
     nav.current.dataset.activeIndex = e.target.id;
-    console.log(e.target.id);
+  };
+
+  const handleOnScrollProjects = () => {
+    const scrollValue = projectContainer.current.scrollTop;
+
+    console.log(scrollValue);
+  };
+
+  const handleOnHoverNav = (e) => {
+    nav.current.dataset.hoverIndex = e.target.id;
+  };
+
+  const handleOnUnHoverNav = (e) => {
+    nav.current.dataset.hoverIndex = null;
   };
 
   return (
@@ -73,6 +86,7 @@ function App() {
       <div className="body" ref={body}>
         <div
           className="project-container"
+          onScroll={handleOnScrollProjects}
           ref={projectContainer}
           onMouseMove={(e) => handleOnMouseMoveProject(e)}
         >
@@ -96,18 +110,21 @@ function App() {
         <div className="nav-container" ref={nav}>
           {navs.map((nav, index) => {
             return (
-              <a
+              <div
                 id={index}
                 key={index}
                 className="nav-link"
                 onClick={(e) => handleOnClickNav(e)}
+                onMouseEnter={(e) => handleOnHoverNav(e)}
+                onMouseLeave={(e) => handleOnUnHoverNav(e)}
                 ref={(e) => (navRef[index] = e)}
               >
                 {nav}
-              </a>
+              </div>
             );
           })}
-          <div className="hover"></div>
+          <div className="hover-dot"></div>
+          <div className="clicked"></div>
         </div>
       </div>
     </div>

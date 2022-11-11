@@ -2,7 +2,6 @@
 @import "./menu.scss";
 
 html {
-  // cursor: none;
   scroll-behavior: smooth;
   overflow: hidden;
 }
@@ -11,6 +10,7 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
@@ -23,7 +23,6 @@ body {
 #app {
   height: 100vh;
   width: 100vw;
-  // background-image: radial-gradient(rgb(30, 30, 30), $color-black);
 
   .intro-container {
     height: 100%;
@@ -31,41 +30,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 800ms cubic-bezier(0.49, 1.09, 0.96, 0.97);
+    transition: 800ms $transition-cubic;
 
     .intro-name,
     .intro-title {
-      align-items: center;
-      text-align: center;
       color: $color-white;
-      font-size: 2rem;
       user-select: none;
     }
 
     .intro-name {
       position: absolute;
-      animation: introName 2s linear 0s 1 normal forwards;
-      transition: 1000ms;
+      animation: intro 2s linear 0s 1 normal forwards;
+      font-size: 2rem;
+      transition: 1000ms ease;
     }
 
     .intro-title {
-      animation: introTitle 1.5s ease-in-out 1.5s 1 normal forwards;
+      animation: intro 1.5s ease-in-out 1.5s 1 normal forwards;
       opacity: 0;
       font-size: 1rem;
       transition: 500ms ease;
     }
 
-    @keyframes introName {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes introTitle {
+    @keyframes intro {
       0% {
         opacity: 0;
       }
@@ -77,25 +64,21 @@ body {
   }
 
   .body {
-    width: 100%;
     height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .project-container {
-      max-height: 80vh;
-      height: calc(100% - 20px);
-      // max-width: 1500px;
-      // width: min(80vw, 80em);
-      width: calc(100% - 20px);
+      height: 100%;
+      max-width: 80vw;
+      width: 70rem;
       display: grid;
-      grid-template-columns: repeat(4, 300px);
+      grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(3, 280px);
       justify-content: center;
       overflow-y: scroll;
       gap: 10px;
-      margin-inline: auto;
-      // box-shadow: inset 0px 11px 18px -5px rgb(16, 16, 16),
-      //   inset 0px -11px 18px -5px rgb(16, 16, 16);
-      scroll-behavior: smooth;
 
       &::-webkit-scrollbar {
         width: 0;
@@ -114,9 +97,7 @@ body {
       .project {
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        // padding: 1rem;
         opacity: 0;
-        // cursor: pointer;
         backdrop-filter: blur(10px);
         position: relative;
 
@@ -168,10 +149,10 @@ body {
         @for $i from 1 to 9 {
           &:nth-child(#{$i}) {
             animation: projectAnimation
-              0.5s
-              linear
+              0.4s
+              ease
               #{$i *
-              0.15 +
+              0.1 +
               3.5}s
               1
               normal
@@ -180,10 +161,14 @@ body {
 
           @keyframes projectAnimation {
             0% {
+              scale: 1.3;
+              transform: translateY(50px);
               opacity: 0;
             }
 
             100% {
+              scale: 1;
+              transform: translate(0px);
               opacity: 1;
             }
           }
@@ -200,102 +185,156 @@ body {
       }
     }
   }
-}
 
-.fa-arrow-pointer {
-  font-size: 1em;
-  position: absolute;
-  top: 0;
-  z-index: 99999;
-  pointer-events: none;
-  color: $color-white;
-  text-shadow: 0 0 30px $primary-color;
-  transition: opacity 700ms ease;
-  opacity: 0;
-}
-
-.nav {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  margin-bottom: clamp(1rem, 20vmin, 2rem);
-
-  .nav-container {
-    width: auto;
-    text-align: center;
-    border-radius: 5em;
-    padding: 1em 2em;
-    backdrop-filter: blur(2px);
-    background: transparent;
-    box-shadow: 0 0 5px $color-white;
-    opacity: 0;
-    transition: opacity 1200ms ease-in-out;
-    user-select: none;
-    height: auto;
-    position: relative;
+  .nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 1em;
+    justify-content: center;
+    z-index: 1;
+    margin-bottom: clamp(1rem, 20vmin, 2rem);
 
-    &[data-active-index="0"] > .hover {
-      left: 19px;
-    }
-
-    &[data-active-index="1"] > .hover {
-      width: 90px;
-      left: 94px;
-    }
-
-    &[data-active-index="2"] > .hover {
-      left: 182px;
-      width: 70px;
-    }
-
-    &[data-active-index="3"] > .hover {
-      left: 250px;
-    }
-
-    .nav-link {
-      // padding: 0.5em 0.8em;
-      font-size: 1em;
-      color: $color-white;
+    .nav-container {
+      width: auto;
+      text-align: center;
       border-radius: 5em;
-      gap: 1rem;
-      transition: background-color 200ms ease-in-out;
-      cursor: pointer;
-    }
+      padding: 1em 2em;
+      backdrop-filter: blur(2px);
+      background: transparent;
+      box-shadow: 0 0 5px $color-white;
+      opacity: 0;
+      transition: opacity 1200ms $transition-cubic;
+      user-select: none;
+      height: auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
 
-    .hover {
-      position: absolute;
-      height: 35px;
-      width: 80px;
-      border-radius: 20px;
-      z-index: -1;
-      left: 19px;
-      background-color: rgba(255, 255, 255, 0.1);
-      transition: all cubic-bezier(0.77, 0, 0.175, 1) 700ms;
+      /* When navigation is clicked */
+
+      &[data-active-index="0"] > .clicked {
+        left: 20px;
+      }
+
+      &[data-active-index="1"] > .clicked {
+        width: 90px;
+        left: 94px;
+      }
+
+      &[data-active-index="2"] > .clicked {
+        left: 183px;
+        width: 70px;
+      }
+
+      &[data-active-index="3"] > .clicked {
+        left: 250px;
+      }
+
+      /* When navigation is unhovered */
+
+      &[data-active-index="0"] > .hover-dot {
+        left: 55px;
+      }
+
+      &[data-active-index="1"] > .hover-dot {
+        left: 134px;
+      }
+
+      &[data-active-index="2"] > .hover-dot {
+        left: 213px;
+      }
+
+      &[data-active-index="3"] > .hover-dot {
+        left: 285px;
+      }
+
+      /* When navigation is hovered */
+
+      &[data-hover-index="0"] > .hover-dot {
+        left: 55px;
+      }
+
+      &[data-hover-index="1"] > .hover-dot {
+        left: 134px;
+      }
+
+      &[data-hover-index="2"] > .hover-dot {
+        left: 213px;
+      }
+
+      &[data-hover-index="3"] > .hover-dot {
+        left: 285px;
+      }
+
+      .nav-link {
+        font-size: 1em;
+        color: $color-white;
+        border-radius: 5em;
+        gap: 1rem;
+        transition: background-color 200ms ease-in-out;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .hover-dot {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        left: 55px;
+        top: -15px;
+        border-radius: 50%;
+        background-color: azure;
+        transition: all $transition-cubic 500ms;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+        animation: pulse 2s infinite;
+
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+          }
+
+          70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+          }
+
+          100% {
+            // @include transform(scale(.9));
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          }
+        }
+      }
+
+      .clicked {
+        position: absolute;
+        height: 35px;
+        width: 80px;
+        border-radius: 20px;
+        z-index: -1;
+        left: 19px;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all $transition-cubic 1000ms;
+      }
     }
   }
 }
 
-@media (max-width: 800px) {
-  .fa-arrow-pointer {
-    display: none;
-  }
-
+@media screen and (max-width: 800px) {
   .body {
-    .project-container {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(8, 18em);
+    display: flex;
+    flex-direction: column;
 
-      .project {
-        // display: none;
-      }
+    .project-container {
+      // display: flex;
+      // flex-direction: column;
+      background-color: red;
+
+      // .project {
+      //   width: 100%;
+      // }
     }
 
     .nav {
