@@ -81,11 +81,14 @@ body {
     height: 70vh;
 
     .project-container {
-      height: 100%;
-      width: min(80vw, 80em);
+      max-height: 80vh;
+      height: calc(100% - 20px);
+      max-width: 60vw;
+      // width: min(80vw, 80em);
+      width: calc(100% - 20px);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 18em);
+      grid-template-rows: repeat(3, 280px);
       overflow-y: scroll;
       gap: 1em;
       margin-inline: auto;
@@ -103,22 +106,35 @@ body {
         height: 100%;
       }
 
+      &:hover > .project > .project-border{
+        opacity: 1;
+      }
+
       .project {
-        background-color: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        padding: 2rem;
+        // padding: 1rem;
         opacity: 0;
-        cursor: pointer;
-        backdrop-filter: blur(100px);
+        // cursor: pointer;
+        backdrop-filter: blur(10px);
         position: relative;
 
-        &::before {
-          background: radial-gradient(
-            800px circle at 100px 100px,
-            rgba(255, 255, 255, 0.06),
-            transparent 40%
-          );
+        .project-content {
+          background-color: $project-content;
+          border-radius: inherit;
+          height: calc(100% - 2px);
+          width: calc(100% - 2px);
+          margin: 1px;
+          z-index: 2;
+          position: relative;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
+        &::before,
+        .project-border {
           content: "";
           border-radius: inherit;
           height: 100%;
@@ -126,15 +142,32 @@ body {
           position: absolute;
           left: 0;
           top: 0;
-          z-index: 2;
           opacity: 0;
           transition: opacity 500ms;
+        }
+
+        &::before {
+          background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%
+          );
+          z-index: 3;
+        }
+
+        .project-border {
+          background: radial-gradient(
+            400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.3),
+            transparent 40%
+          );
+          z-index: 1;
         }
 
         @for $i from 1 to 9 {
           &:nth-child(#{$i}) {
             animation: projectAnimation
-              1s
+              0.5s
               linear
               #{$i *
               0.15 +
@@ -160,7 +193,6 @@ body {
       }
 
       .project5 {
-        padding: 2rem;
         grid-column-start: 4;
         grid-row-start: 1;
         grid-row-end: 3;
