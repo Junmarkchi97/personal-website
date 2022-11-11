@@ -83,14 +83,15 @@ body {
     .project-container {
       max-height: 80vh;
       height: calc(100% - 20px);
-      max-width: 60vw;
+      // max-width: 1500px;
       // width: min(80vw, 80em);
       width: calc(100% - 20px);
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 300px);
       grid-template-rows: repeat(3, 280px);
+      justify-content: center;
       overflow-y: scroll;
-      gap: 1em;
+      gap: 10px;
       margin-inline: auto;
       // box-shadow: inset 0px 11px 18px -5px rgb(16, 16, 16),
       //   inset 0px -11px 18px -5px rgb(16, 16, 16);
@@ -106,7 +107,7 @@ body {
         height: 100%;
       }
 
-      &:hover > .project > .project-border{
+      &:hover > .project > .project-border {
         opacity: 1;
       }
 
@@ -149,7 +150,7 @@ body {
         &::before {
           background: radial-gradient(
             800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.03),
             transparent 40%
           );
           z-index: 3;
@@ -241,6 +242,24 @@ body {
     align-items: center;
     gap: 1em;
 
+    &[data-active-index="0"] > .hover {
+      left: 19px;
+    }
+
+    &[data-active-index="1"] > .hover {
+      width: 90px;
+      left: 94px;
+    }
+
+    &[data-active-index="2"] > .hover {
+      left: 182px;
+      width: 70px;
+    }
+
+    &[data-active-index="3"] > .hover {
+      left: 250px;
+    }
+
     .nav-link {
       // padding: 0.5em 0.8em;
       font-size: 1em;
@@ -249,27 +268,13 @@ body {
       gap: 1rem;
       transition: background-color 200ms ease-in-out;
       cursor: pointer;
-
-      &:nth-child(2):hover ~ .hover {
-        width: 90px;
-        left: 94px;
-      }
-
-      &:nth-child(3):hover ~ .hover {
-        left: 182px;
-        width: 70px;
-      }
-
-      &:nth-child(4):hover ~ .hover {
-        left: 250px;
-      }
     }
 
     .hover {
       position: absolute;
       height: 35px;
       width: 80px;
-      border-radius: 10px;
+      border-radius: 20px;
       z-index: -1;
       left: 19px;
       background-color: rgba(255, 255, 255, 0.1);
