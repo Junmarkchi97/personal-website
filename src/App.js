@@ -8,6 +8,7 @@ function App() {
   const introContainer = useRef(null);
   const nav = useRef(null);
   const body = useRef(null);
+  const projectContainer = useRef(null);
   const scrollTracker = useRef(null);
   const cursor = useRef(null);
 
@@ -20,6 +21,10 @@ function App() {
         introContainer.current.style.scale = "0.8";
         introTitle.current.style.color = "gray";
         nav.current.style.opacity = "1";
+
+        // setTimeout(() => {
+        //   projectContainer.current.style.opacity = "1";
+        // }, 800);
       }, 1800);
     }, 1500);
   }, []);
@@ -53,14 +58,15 @@ function App() {
         </div>
       </div>
       <div className="body" ref={body} onMouseEnter={moustEnterBody}>
-        <div className="work-container">
-          <div className="project1 grid-column-span-2"></div>
-          <div className="project2"></div>
-          <div className="project3"></div>
-          <div className="project4 grid-column-span-2"></div>
-          <div className="project5"></div>
-          <div className="project6"></div>
-          <div className="project7"></div>
+        <div className="project-container" ref={projectContainer}>
+          <div className="project project1 grid-column-span-2"></div>
+          <div className="project project2"></div>
+          <div className="project project3"></div>
+          <div className="project project4 grid-column-span-2"></div>
+          <div className="project project5"></div>
+          <div className="project project6"></div>
+          <div className="project project7"></div>
+          <div className="project project8 grid-column-span-2"></div>
         </div>
       </div>
       <div className="scroll-tracker" ref={scrollTracker}></div>
@@ -70,6 +76,7 @@ function App() {
           <a className="nav-link">Education</a>
           <a className="nav-link">Contact</a>
           <a className="nav-link">Resume</a>
+          <div className="hover"></div>
         </div>
       </div>
     </div>

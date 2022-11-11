@@ -8,3 +8,13 @@ $color-black: rgb(20, 20, 20);
 $color-white: #ffffff;
 $primary-color: #333333;
 // #50577a;
+
+
+@mixin transition {
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      opacity: 1;
+      transition: all .2s #{$i * 2}s ease-in;
+    }
+  }
+}
