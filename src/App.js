@@ -10,6 +10,8 @@ function App() {
   const navRef = useRef([]);
   const nav = useRef(null);
   const body = useRef(null);
+  const bodyShadeTop = useRef(null);
+  const bodyShadeBottom = useRef(null);
   const projectContainer = useRef(null);
   const scrollTracker = useRef(null);
 
@@ -61,8 +63,16 @@ function App() {
 
   const handleOnScrollProjects = () => {
     const scrollValue = projectContainer.current.scrollTop;
+    const scrollMaxValue = projectContainer.current.scrollHeight;
 
-    console.log(scrollValue);
+    if (scrollValue === 0) {
+      bodyShadeTop.current.style.opacity = "0";
+      bodyShadeBottom.current.style.opacity = "1";
+    } else {
+      bodyShadeTop.current.style.opacity = "1";
+      bodyShadeBottom.current.style.opacity = "0";
+    }
+    console.log(projectContainer.current.scrollTop);
   };
 
   const handleOnHoverNav = (e) => {
@@ -84,6 +94,7 @@ function App() {
         </div>
       </div>
       <div className="body" ref={body}>
+        <div className="body-shade-top" ref={bodyShadeTop}></div>
         <div
           className="project-container"
           onScroll={handleOnScrollProjects}
@@ -104,6 +115,7 @@ function App() {
             );
           })}
         </div>
+        <div className="body-shade-bottom" ref={bodyShadeBottom}></div>
       </div>
       <div className="scroll-tracker" ref={scrollTracker}></div>
       <div className="nav">
