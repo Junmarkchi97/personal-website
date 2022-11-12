@@ -6,14 +6,14 @@ function App() {
   const introName = useRef(null);
   const introTitle = useRef(null);
   const introContainer = useRef(null);
-  const projectRef = useRef([]);
-  const navRef = useRef([]);
   const nav = useRef(null);
-  const body = useRef(null);
-  const bodyShadeTop = useRef(null);
-  const bodyShadeBottom = useRef(null);
+  const navRef = useRef([]);
+  const projectRef = useRef([]);
+  const projectWrapper = useRef(null);
   const projectContainer = useRef(null);
-  const scrollTracker = useRef(null);
+  const projectShadeTop = useRef(null);
+  const projectShadeBottom = useRef(null);
+  const aboutWrapper = useRef(null);
 
   const [projects, setProjects] = useState([
     { id: "1", class: "project project1 grid-column-span-2", selected: false },
@@ -26,22 +26,18 @@ function App() {
     { id: "8", class: "project project8 grid-column-span-2", selected: false },
   ]);
 
-  const [navs, setNavs] = useState([
-    "Projects",
-    "Education",
-    "Contact",
-    "Resume",
-  ]);
+  const [navs, setNavs] = useState(["Projects", "About", "Contact", "Resume"]);
 
   useEffect(() => {
     setTimeout(() => {
       introName.current.style.transform = "translateY(-30px)";
 
       setTimeout(() => {
-        introContainer.current.style.height = "15%";
+        introContainer.current.style.height = "13%";
         introContainer.current.style.scale = "0.8";
         introTitle.current.style.color = "gray";
         nav.current.style.opacity = "1";
+        projectContainer.current.style.display = "grid";
       }, 1800);
     }, 1500);
   }, []);
@@ -59,6 +55,12 @@ function App() {
 
   const handleOnClickNav = (e) => {
     nav.current.dataset.activeIndex = e.target.id;
+
+    if (e.target.id == 0) {
+    } else if (e.target.id == 1) {
+    } else if (e.target.id == 2) {
+    } else {
+    }
   };
 
   const handleOnScrollProjects = () => {
@@ -66,13 +68,12 @@ function App() {
     const scrollMaxValue = projectContainer.current.scrollHeight;
 
     if (scrollValue === 0) {
-      bodyShadeTop.current.style.opacity = "0";
-      bodyShadeBottom.current.style.opacity = "1";
+      projectShadeTop.current.style.opacity = "0";
+      projectShadeBottom.current.style.opacity = "1";
     } else {
-      bodyShadeTop.current.style.opacity = "1";
-      bodyShadeBottom.current.style.opacity = "0";
+      projectShadeTop.current.style.opacity = "1";
+      projectShadeBottom.current.style.opacity = "0";
     }
-    console.log(projectContainer.current.scrollTop);
   };
 
   const handleOnHoverNav = (e) => {
@@ -93,8 +94,8 @@ function App() {
           WEB DEVELOPER
         </div>
       </div>
-      <div className="body" ref={body}>
-        <div className="body-shade-top" ref={bodyShadeTop}></div>
+      <div className="project-wrapper" ref={projectWrapper}>
+        <div className="body-shade-top" ref={projectShadeTop}></div>
         <div
           className="project-container"
           onScroll={handleOnScrollProjects}
@@ -115,8 +116,13 @@ function App() {
             );
           })}
         </div>
-        <div className="body-shade-bottom" ref={bodyShadeBottom}></div>
+        <div className="body-shade-bottom" ref={projectShadeBottom}></div>
       </div>
+      <div className="about-wrapper" ref={aboutWrapper}>
+        ABOUT ME
+      </div>
+      <div className="contact-wrapper"></div>
+      <div className="resume-wrapper"></div>
       {/* <div className="scroll-tracker" ref={scrollTracker}></div> */}
       <div className="nav">
         <div className="nav-container" ref={nav}>
@@ -137,14 +143,14 @@ function App() {
           })}
           <div className="social-links">
             <a href="https://github.com/Junmarkchi97" target="_blank" id="4">
-              <i class="fa-brands fa-github"></i>
+              <i className="fa-brands fa-github"></i>
             </a>
             <a
               href="https://www.linkedin.com/in/junmarkchi/"
               target="_blank"
               id="5"
             >
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </a>
           </div>
           <div className="hover-dot"></div>
