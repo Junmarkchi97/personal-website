@@ -13,6 +13,8 @@ $transition-cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
 $text-dark-color: rgba(255, 255, 255, 0.5);
 
+$success: rgb(90, 160, 90);
+
 @mixin transition {
   @for $i from 1 through 8 {
     &:nth-child(#{$i}) {

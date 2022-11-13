@@ -1,15 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../styles/contact.scss";
+import PropagateLoader from "react-spinners/ClipLoader";
 
 const ContactUs = () => {
   const form = useRef();
   const inputName = useRef();
   const inputEmail = useRef();
   const inputMessage = useRef();
+  const sucessMessage = useRef(null);
+  const [sending, setSending] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setSending(true);
 
     emailjs
       .sendForm(
@@ -20,13 +24,18 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          console.log(result.text, "message sent");
           inputName.current.value = "";
           inputEmail.current.value = "";
           inputMessage.current.value = "";
+          sucessMessage.current.style.opacity = "1";
+          setSending(false);
+          setTimeout(() => {
+            sucessMessage.current.style.opacity = "0";
+          }, 10000);
         },
         (error) => {
           console.log(error.text, "message not sent");
+          setSending(false);
         }
       );
   };
@@ -78,7 +87,16 @@ const ContactUs = () => {
           placeholder="Message"
           required
         />
-        <input className="submit" type="submit" value="Send Message" />
+        <button className="submit" type="submit">
+          {sending ? (
+            <PropagateLoader color="#ffffff" size={16} />
+          ) : (
+            "Send Message"
+          )}
+        </button>
+        <div className="success-message" ref={sucessMessage}>
+          <i className="fa-solid fa-circle-check"></i>Message Sent
+        </div>
       </form>
     </div>
   );

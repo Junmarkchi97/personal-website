@@ -2,13 +2,8 @@
 
 .contact-container {
   height: 70vh;
-  overflow-y: scroll;
   padding: 0 1em;
   width: minmax(50rem, 90vw);
-
-  &::-webkit-scrollbar {
-    width: 0;
-  }
 
   .contact-infos {
     padding: 1em;
@@ -109,14 +104,17 @@
 
     .submit {
       border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 1em;
       border-radius: 5px;
-      font-size: 0.9em;
+      font-size: 16px;
       cursor: pointer;
       background-color: $primary-color;
       color: $color-white;
       transition: background-color 200ms ease;
-      margin-bottom: 3em;
+      height: 3em;
 
       &:hover {
         background-color: rgb(166, 143, 101);
@@ -126,6 +124,21 @@
         background-color: rgb(115, 100, 69);
       }
     }
+
+    .success-message {
+      padding: 0.5em 1em;
+      border-radius: 10px;
+      margin-bottom: 3em;
+      text-align: center;
+      background-color: rgba(93, 148, 96, 0.1);
+      color: $success;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+      transition: opacity 500ms;
+      opacity: 0;
+    }
   }
 }
 
@@ -133,7 +146,6 @@
   .contact-container {
     overflow-y: scroll;
     height: 80vh;
-    // width: 90vw;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -155,12 +167,25 @@
     .contact-form {
       padding: 2rem 0;
     }
+
+    .submit {
+      font-size: 10px;
+      height: 2em;
+    }
   }
 }
 
 @media (max-width: 1800px) {
   .contact-container {
     font-size: 0.8em;
+
+    h2 {
+      line-height: 0;
+    }
+
+    .contact-form {
+      gap: 0.8em;
+    }
 
     .input-message {
       height: 2rem;

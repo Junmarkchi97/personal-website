@@ -227,7 +227,7 @@ body {
         .project-border {
           background: radial-gradient(
             400px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.3),
+            rgba(188, 162, 114, 0.6),
             transparent 40%
           );
           z-index: 1;
@@ -316,6 +316,11 @@ body {
     opacity: 0;
     animation: contactWrapper 1s cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal
       forwards;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
 
     @keyframes contactWrapper {
       0% {
@@ -338,7 +343,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
     .nav-container {
       width: auto;
@@ -581,6 +586,10 @@ body {
         display: none;
       }
     }
+  }
+
+  .view-project-cursor {
+    display: none;
   }
 }
 
