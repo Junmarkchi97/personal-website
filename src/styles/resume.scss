@@ -1,0 +1,78 @@
+@import "./variables";
+
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: resumeContainer 1s ease 0s 1 normal forwards;
+
+  @keyframes resumeContainer {
+    from {
+      opacity: 0;
+      scale: 1.5;
+    }
+
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  .resume-download {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 0.7em 1em;
+    font-family: "FreeSans", sans-serif;
+    background-color: $primary-color;
+    text-align: center;
+    cursor: pointer;
+    color: $color-white;
+    transition: background-color 200ms ease;
+
+    &:hover {
+      background-color: rgb(166, 143, 101);
+    }
+
+    &:active {
+      background-color: rgb(115, 100, 69);
+    }
+
+    .fa-download {
+      margin-right: 0.5em;
+    }
+  }
+
+  h6 {
+    color: $primary-color;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      width: 6em;
+      height: 1px;
+      background-color: $primary-color;
+      position: absolute;
+      left: -6.5em;
+      top: 50%;
+    }
+
+    &::after {
+      content: "";
+      width: 6em;
+      height: 1px;
+      background-color: $primary-color;
+      position: absolute;
+      right: -6.5em;
+      top: 50%;
+    }
+  }
+
+  a {
+    color: $color-white;
+  }
+}

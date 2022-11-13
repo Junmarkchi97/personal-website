@@ -1,0 +1,29 @@
+@import "./variables";
+
+.about-container {
+  width: 70rem;
+  max-width: 80%;
+  padding: 1rem;
+
+  .technologies,
+  .educations {
+    color: $primary-color;
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  .technologies-logo {
+    font-size: 4em;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  h3 {
+    font-weight: 100;
+    span {
+      margin-left: 0.5em;
+      font-size: 2em;
+      font-family: "Dancing Script", cursive;
+      color: $primary-color;
+    }
+  }
+}

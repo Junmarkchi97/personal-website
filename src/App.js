@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles/app.scss";
-import ContactUs from "./components/contact.jsx";
+import Contact from "./components/contact.jsx";
+import Resume from "./components/resume.jsx";
+import About from "./components/about.jsx";
 
 function App() {
   const app = useRef(null);
@@ -154,34 +156,20 @@ function App() {
         className="wrapper about-wrapper"
         ref={(e) => (wrapperRef.current[1] = e)}
       >
-        <div className="about-container">
-          <h1>About Me</h1>
-          <h3>
-            I'm Junmark. Electrical Engineering graduate from Cebu Institute of
-            Technology - University.
-          </h3>
-          <h2>Technologies</h2>
-          <div className="technologies">
-            <i className="fa-brands fa-square-js"></i>
-            <i className="fa-brands fa-react"></i>
-            <i className="fa-brands fa-html5"></i>
-            <i className="fa-brands fa-css3-alt"></i>
-            <i className="fa-brands fa-npm"></i>
-            <i className="fa-brands fa-github"></i>
-          </div>
-        </div>
+        <About />
+        
       </div>
       <div
         className="wrapper contact-wrapper"
         ref={(e) => (wrapperRef.current[2] = e)}
       >
-        <ContactUs />
+        <Contact />
       </div>
       <div
         className="wrapper resume-wrapper"
-        ref={(e) => (wrapperRef.current[3] = e)}
+        // ref={(e) => (wrapperRef.current[3] = e)}
       >
-        RESUME
+        <Resume />
       </div>
       {/* <div className="scroll-tracker" ref={scrollTracker}></div> */}
       <div className="nav">

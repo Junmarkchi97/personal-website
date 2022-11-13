@@ -43,7 +43,7 @@ const ContactUs = () => {
   return (
     <div className="contact-container">
       <div className="contact-infos">
-        <div className="contact-address">
+        <div className="contact contact-address">
           <i className="fa-solid fa-location-dot"></i>
           <span>Address:</span>
           <span>
@@ -51,15 +51,15 @@ const ContactUs = () => {
             del Sur PH 7023
           </span>
         </div>
-        <div className="contact-phone">
+        <div className="contact contact-phone">
           <i className="fa-solid fa-phone"></i>
           <span>Phone:</span>
           <span>+63 9752 0000 83</span>
         </div>
-        <div className="contact-email">
+        <div className="contact contact-email">
           <i className="fa-solid fa-envelope"></i>
           <span>Email:</span>
-          <span>chijunmark97@gmail.com</span>
+          <a href="mailto:chijunmark97@gmail.com">chijunmark97@gmail.com</a>
         </div>
       </div>
       <form ref={form} onSubmit={sendEmail} className="contact-form">

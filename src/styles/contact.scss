@@ -11,6 +11,29 @@
     justify-content: space-evenly;
     gap: 2em;
 
+    .contact {
+      opacity: 0;
+
+      @for $i from 1 to 4 {
+        &:nth-child(#{$i}) {
+          animation: contactInfo 1s ease #{$i * 0.1}s 1 normal forwards;
+
+          @keyframes contactInfo {
+            from {
+              opacity: 0;
+
+              transform: translateY(-150px);
+            }
+            to {
+              opacity: 1;
+
+              transform: translateY(0px);
+            }
+          }
+        }
+      }
+    }
+
     .contact-address,
     .contact-phone,
     .contact-email {
@@ -46,6 +69,10 @@
     .contact-email {
       span:nth-child(3) {
         text-align: center;
+        color: $color-white;
+      }
+
+      a {
         color: $color-white;
       }
     }
@@ -107,14 +134,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1em;
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
       background-color: $primary-color;
       color: $color-white;
       transition: background-color 200ms ease;
-      height: 3em;
+      height: 2.5em;
 
       &:hover {
         background-color: rgb(166, 143, 101);
