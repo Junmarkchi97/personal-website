@@ -24,6 +24,23 @@ body {
 #app {
   height: 100vh;
   width: 100vw;
+  perspective: 200rem;
+
+  &[data-clicked-nav="0"] > .project-wrapper {
+    display: grid;
+  }
+
+  &[data-clicked-nav="1"] > .about-wrapper {
+    display: flex;
+  }
+
+  &[data-clicked-nav="2"] > .contact-wrapper {
+    display: flex;
+  }
+
+  &[data-clicked-nav="3"] > .resume-wrapper {
+    display: flex;
+  }
 
   .intro-container {
     height: 100%;
@@ -66,15 +83,13 @@ body {
 
   .project-wrapper {
     height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     position: relative;
-    // transform: rotate(45deg);
-    // display: none;
-    transition: 1000ms $transition-cubic;
+    transition: 500ms $transition-cubic;
+    display: none;
 
-    .body-shade-top {
+    .project-shade-top {
       width: 100%;
       height: 2px;
       background-color: $color-black;
@@ -88,7 +103,7 @@ body {
       transition: opacity 400ms ease;
     }
 
-    .body-shade-bottom {
+    .project-shade-bottom {
       width: 100%;
       height: 2px;
       background-color: $color-black;
@@ -101,7 +116,7 @@ body {
       box-shadow: 0px -10px 30px 30px $color-black;
       opacity: 0;
       z-index: 1;
-      transition: opacity 400ms ease;
+      transition: opacity 400ms ease-in-out;
     }
 
     .project-container {
@@ -113,8 +128,9 @@ body {
       grid-template-rows: repeat(3, 280px);
       justify-content: center;
       overflow-y: scroll;
+      padding: 1rem;
       gap: 10px;
-      display: none;
+      transition: transform 1000ms $transition-cubic;
 
       &::-webkit-scrollbar {
         width: 0;
@@ -136,6 +152,39 @@ body {
         opacity: 0;
         backdrop-filter: blur(10px);
         position: relative;
+        transition: scale 200ms ease;
+
+        @for $i from 1 to 9 {
+          &:nth-child(#{$i}) {
+            animation: projectAnimation
+              0.5s
+              ease
+              #{$i *
+              0.1}s
+              1
+              normal
+              forwards;
+          }
+
+          @keyframes projectAnimation {
+            0% {
+              scale: 1.3;
+              transform: translateY(50px);
+              opacity: 0;
+            }
+
+            100% {
+              scale: 1;
+              transform: translate(0px);
+              opacity: 1;
+            }
+          }
+        }
+
+        // &:hover {
+        //   scale: 1.05;
+        //   z-index: 5;
+        // }
 
         .project-content {
           background-color: $project-content;
@@ -181,38 +230,6 @@ body {
           );
           z-index: 1;
         }
-
-        @for $i from 1 to 9 {
-          &:nth-child(#{$i}) {
-            animation: projectAnimation
-              0.5s
-              ease
-              #{$i *
-              0.1 +
-              0.3}s
-              1
-              normal
-              forwards;
-          }
-
-          @keyframes projectAnimation {
-            0% {
-              scale: 1.3;
-              transform: translateY(50px);
-              opacity: 0;
-            }
-
-            100% {
-              scale: 1;
-              transform: translate(0px);
-              opacity: 1;
-            }
-          }
-        }
-      }
-
-      .project1 {
-        // width: 500p;
       }
 
       .project5 {
@@ -224,14 +241,85 @@ body {
   }
 
   .about-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    // transition: 500ms $transition-cubic;
+    display: none;
+    opacity: 0;
+    animation: aboutWrapper 1s cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal
+      forwards;
+
+    .about-container {
+      width: 70rem;
+    }
+
+    @keyframes aboutWrapper {
+      0% {
+        transform: translateY(150px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+  }
+
+  .resume-wrapper {
     height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     color: white;
+    transition: 500ms $transition-cubic;
+    display: none;
     opacity: 0;
-    transition: 1000ms $transition-cubic;
+    animation: resumeWrapper 1s cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal
+      forwards;
+
+    @keyframes resumeWrapper {
+      0% {
+        scale: 1.3;
+        transform: translateY(150px);
+        opacity: 0;
+      }
+
+      100% {
+        scale: 1;
+        transform: translate(0px);
+        opacity: 1;
+      }
+    }
+  }
+
+  .contact-wrapper {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    transition: 500ms $transition-cubic;
+    display: none;
+    opacity: 0;
+    animation: contactWrapper 1s cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal
+      forwards;
+
+    @keyframes contactWrapper {
+      0% {
+        scale: 1.3;
+        opacity: 0;
+      }
+
+      100% {
+        scale: 1;
+        opacity: 1;
+      }
+    }
   }
 
   .nav {
@@ -249,7 +337,7 @@ body {
       text-align: center;
       border-radius: 5em;
       padding: 0em 2em;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(5px);
       background: transparent;
       box-shadow: 0 0 5px $color-white;
       opacity: 0;
@@ -458,5 +546,60 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
+.fade-right {
+  opacity: 0;
+  transform: rotateY(60deg) translateX(1500px);
+
+  // animation: fading 1s $transition-cubic 0s 1 normal forwards;
+
+  @keyframes fading {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: rotateY(-40deg);
+    }
+  }
+}
+
+.perspective {
+  perspective: 100rem;
+}
+
+.projects-fade {
+  opacity: 0;
+  transform: rotateY(-60deg) translateX(-1500px);
+
+  // animation: fading 1s $transition-cubic 0s 1 normal forwards;
+
+  @keyframes fading {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: rotateY(-70deg);
+    }
+  }
+}
+
+.view-project-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: auto;
+  color: white;
+  font-size: 0.8em;
+  padding: 0.7em 1em;
+  background-color: rgba(255, 255, 255, 0.03);
+  z-index: 11;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 5em;
+  opacity: 0;
+  transition: opacity 200ms ease;
 }
