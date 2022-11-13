@@ -4,11 +4,14 @@
   src: url("../../public/FreeSans.ttf");
 }
 
+$primary-color: rgb(188, 162, 114);
 $color-black: rgb(20, 20, 20);
-$project-content: rgb(23, 23, 23);
 $color-white: #ffffff;
-$primary-color: #333333;
+$project-content: rgb(23, 23, 23);
+$primary-color2: #333333;
 $transition-cubic: cubic-bezier(0.77, 0, 0.175, 1);
+
+$text-dark-color: rgba(255, 255, 255, 0.5);
 
 @mixin transition {
   @for $i from 1 through 8 {

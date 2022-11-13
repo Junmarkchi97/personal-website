@@ -15,10 +15,12 @@ html {
 }
 
 body {
+  position: relative;
   background-color: $color-black;
   margin: 0;
   padding: 0;
-  font-family: "FreeSans";
+  font-family: "FreeSans", sans-serif;
+  overflow: hidden;
 }
 
 #app {
@@ -49,6 +51,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: 800ms $transition-cubic;
+    backdrop-filter: blur(3px);
 
     .intro-name,
     .intro-title {
@@ -61,6 +64,10 @@ body {
       animation: intro 2s linear 0s 1 normal forwards;
       font-size: 2rem;
       transition: 1000ms ease;
+
+      span {
+        color: $primary-color;
+      }
     }
 
     .intro-title {
@@ -253,6 +260,13 @@ body {
 
     .about-container {
       width: 70rem;
+      max-width: 80%;
+      padding: 1rem;
+
+      .technologies {
+        font-size: 4em;
+        color: rgba(255, 255, 255, 0.3);
+      }
     }
 
     @keyframes aboutWrapper {
@@ -269,7 +283,8 @@ body {
   }
 
   .resume-wrapper {
-    height: 70vh;
+    height: auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,10 +312,9 @@ body {
   }
 
   .contact-wrapper {
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: auto;
+    display: grid;
+    place-content: center;
     position: relative;
     color: white;
     transition: 500ms $transition-cubic;
@@ -330,7 +344,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    margin-bottom: clamp(1rem, 20vmin, 2rem);
+    margin-bottom: clamp(1.5rem, 25vmin, 3rem);
 
     .nav-container {
       width: auto;
@@ -339,7 +353,7 @@ body {
       padding: 0em 2em;
       backdrop-filter: blur(5px);
       background: transparent;
-      box-shadow: 0 0 5px $color-white;
+      box-shadow: 0 0 2px $primary-color;
       opacity: 0;
       transition: opacity 1200ms $transition-cubic;
       user-select: none;
@@ -475,7 +489,7 @@ body {
         left: 55px;
         top: -15px;
         border-radius: 50%;
-        background-color: azure;
+        background-color: $primary-color;
         transition: all $transition-cubic 500ms;
         box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
         animation: pulse 2s infinite;
@@ -510,13 +524,43 @@ body {
   }
 }
 
+.view-project-cursor {
+  position: absolute;
+  height: auto;
+  width: auto;
+  color: white;
+  font-size: 0.8em;
+  padding: 0.7em 1em;
+  background-color: rgba(255, 255, 255, 0.03);
+  z-index: 11;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 5em;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
 @media (max-width: 800px) {
+  html {
+    overflow: hidden;
+  }
+  .intro-container {
+    display: none;
+    .intro-name {
+      font-size: 0.1rem;
+    }
+
+    .intro-title {
+      font-size: 0.1rem;
+    }
+  }
+
   .project-wrapper {
-    display: flex;
+    display: none;
     flex-direction: column;
 
     .project-container {
-      display: flex;
+      display: none;
       // grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 
       .grid-column-span-2 {
@@ -546,60 +590,14 @@ body {
   }
 }
 
-.fade-right {
-  opacity: 0;
-  transform: rotateY(60deg) translateX(1500px);
-
-  // animation: fading 1s $transition-cubic 0s 1 normal forwards;
-
-  @keyframes fading {
-    0% {
-      opacity: 1;
+@media (max-width: 1600px) {
+  .intro-container {
+    .intro-name {
+      font-size: 0.1rem;
     }
 
-    100% {
-      opacity: 0;
-      transform: rotateY(-40deg);
+    .intro-title {
+      font-size: 0.1rem;
     }
   }
-}
-
-.perspective {
-  perspective: 100rem;
-}
-
-.projects-fade {
-  opacity: 0;
-  transform: rotateY(-60deg) translateX(-1500px);
-
-  // animation: fading 1s $transition-cubic 0s 1 normal forwards;
-
-  @keyframes fading {
-    0% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-      transform: rotateY(-70deg);
-    }
-  }
-}
-
-.view-project-cursor {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: auto;
-  color: white;
-  font-size: 0.8em;
-  padding: 0.7em 1em;
-  background-color: rgba(255, 255, 255, 0.03);
-  z-index: 11;
-  pointer-events: none;
-  user-select: none;
-  border-radius: 5em;
-  opacity: 0;
-  transition: opacity 200ms ease;
 }

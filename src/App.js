@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles/app.scss";
+import ContactUs from "./components/contact.jsx";
 
 function App() {
   const app = useRef(null);
@@ -36,11 +37,11 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      introName.current.style.transform = "translateY(-30px)";
+      introName.current.style.transform = "translateY(-25px)";
 
       setTimeout(() => {
-        introContainer.current.style.height = "13%";
-        introContainer.current.style.scale = "0.8";
+        introContainer.current.style.height = "10%";
+        introContainer.current.style.scale = "0.7";
         introTitle.current.style.color = "gray";
         nav.current.style.opacity = "1";
         app.current.dataset.clickedNav = 0;
@@ -112,7 +113,7 @@ function App() {
       </div>
       <div className="intro-container" ref={introContainer}>
         <div className="intro-name" ref={introName}>
-          JUNMARK CHI
+          JUNMARK <span>CHI</span>
         </div>
         <div className="intro-title" ref={introTitle}>
           FULL-STACK DEVELOPER
@@ -155,14 +156,26 @@ function App() {
       >
         <div className="about-container">
           <h1>About Me</h1>
-          <h5>Skills:</h5>
+          <h3>
+            I'm Junmark. Electrical Engineering graduate from Cebu Institute of
+            Technology - University.
+          </h3>
+          <h2>Technologies</h2>
+          <div className="technologies">
+            <i className="fa-brands fa-square-js"></i>
+            <i className="fa-brands fa-react"></i>
+            <i className="fa-brands fa-html5"></i>
+            <i className="fa-brands fa-css3-alt"></i>
+            <i className="fa-brands fa-npm"></i>
+            <i className="fa-brands fa-github"></i>
+          </div>
         </div>
       </div>
       <div
         className="wrapper contact-wrapper"
         ref={(e) => (wrapperRef.current[2] = e)}
       >
-        <div>Contact</div>
+        <ContactUs />
       </div>
       <div
         className="wrapper resume-wrapper"

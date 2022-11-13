@@ -1,0 +1,173 @@
+@import "./variables";
+
+.contact-container {
+  height: 70vh;
+  overflow-y: scroll;
+  padding: 0 1em;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .contact-infos {
+    padding: 1em;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2em;
+
+    .contact-address,
+    .contact-phone,
+    .contact-email {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      width: calc(100% / 3);
+
+      i {
+        height: 4em;
+        width: 4em;
+        color: $color-white;
+        border-radius: 50%;
+        margin-bottom: 1em;
+        background-color: $primary-color;
+        display: grid;
+        place-content: center;
+      }
+
+      span:nth-child(2) {
+        color: $primary-color;
+        margin-bottom: 5px;
+      }
+
+      span:nth-child(3) {
+        text-align: center;
+        color: $text-dark-color;
+      }
+    }
+
+    .contact-phone,
+    .contact-email {
+      span:nth-child(3) {
+        text-align: center;
+        color: $color-white;
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 1rem;
+    animation: contactForm 1s ease 0s 1 normal forwards;
+
+    @keyframes contactForm {
+      from {
+        opacity: 0;
+        transform: translateY(150px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .input-name,
+    .input-email,
+    .input-message {
+      padding: 0.7em 1em;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-family: "FreeSans", sans-serif;
+      font-size: 1em;
+      transition: box-shadow 200ms;
+
+      &:focus {
+        box-shadow: 0px 0px 0px 1px $primary-color;
+      }
+
+      &::placeholder {
+        color: gray;
+      }
+    }
+
+    .input-message {
+      height: 7rem;
+      resize: vertical;
+    }
+
+    .submit {
+      border: none;
+      padding: 1em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      cursor: pointer;
+      background-color: $primary-color;
+      color: $color-white;
+      transition: background-color 200ms ease;
+      margin-bottom: 3em;
+
+      &:hover {
+        background-color: rgb(166, 143, 101);
+      }
+
+      &:active {
+        background-color: rgb(115, 100, 69);
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .contact-container {
+    overflow-y: scroll;
+    height: 80vh;
+    font-size: 0.7em;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    .contact-infos {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      white-space: nowrap;
+
+      .contact-address,
+      .contact-phone,
+      .contact-email {
+        flex: 1;
+      }
+    }
+
+    .contact-form {
+      padding: 2rem 0;
+    }
+  }
+}
+
+@media (max-width: 1800px) {
+  .contact-container {
+    font-size: 0.6em;
+    width: auto;
+
+    .input-message {
+      height: 2rem;
+    }
+
+    .submit {
+      margin: 0;
+    }
+  }
+}
