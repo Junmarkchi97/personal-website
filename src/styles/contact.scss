@@ -4,6 +4,7 @@
   height: 70vh;
   overflow-y: scroll;
   padding: 0 1em;
+  width: minmax(50rem, 90vw);
 
   &::-webkit-scrollbar {
     width: 0;
@@ -132,7 +133,7 @@
   .contact-container {
     overflow-y: scroll;
     height: 80vh;
-    font-size: 0.7em;
+    // width: 90vw;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -159,8 +160,7 @@
 
 @media (max-width: 1800px) {
   .contact-container {
-    font-size: 0.6em;
-    width: auto;
+    font-size: 0.8em;
 
     .input-message {
       height: 2rem;

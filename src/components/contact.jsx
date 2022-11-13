@@ -35,7 +35,7 @@ const ContactUs = () => {
     <div className="contact-container">
       <div className="contact-infos">
         <div className="contact-address">
-          <i class="fa-solid fa-location-dot"></i>
+          <i className="fa-solid fa-location-dot"></i>
           <span>Address:</span>
           <span>
             753 Lapu-lapu Street, Barangay Makuguihon<br></br> Molave, Zamboanga
@@ -43,18 +43,18 @@ const ContactUs = () => {
           </span>
         </div>
         <div className="contact-phone">
-          <i class="fa-solid fa-phone"></i>
+          <i className="fa-solid fa-phone"></i>
           <span>Phone:</span>
           <span>+63 9752 0000 83</span>
         </div>
         <div className="contact-email">
-          <i class="fa-solid fa-envelope"></i>
+          <i className="fa-solid fa-envelope"></i>
           <span>Email:</span>
           <span>chijunmark97@gmail.com</span>
         </div>
       </div>
-      <h2>Get in touch with me</h2>
       <form ref={form} onSubmit={sendEmail} className="contact-form">
+        <h2>Get in touch with me</h2>
         <input
           className="input-name"
           type="text"
