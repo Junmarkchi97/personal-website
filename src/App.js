@@ -157,7 +157,6 @@ function App() {
         ref={(e) => (wrapperRef.current[1] = e)}
       >
         <About />
-        
       </div>
       <div
         className="wrapper contact-wrapper"
@@ -205,6 +204,7 @@ function App() {
           <div className="clicked"></div>
         </div>
       </div>
+      <div id="maintenance">Website Under Construction</div>
     </div>
   );
 }

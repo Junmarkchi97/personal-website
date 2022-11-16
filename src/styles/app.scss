@@ -591,3 +591,11 @@ body {
     grid-template-rows: repeat(3, 180px);
   }
 }
+
+#maintenance {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  text-align: center;
+  width: 100%;
+}

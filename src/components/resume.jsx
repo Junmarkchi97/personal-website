@@ -10,7 +10,7 @@ function resume() {
       </button>
       <h6>OR</h6>
       <a
-        href="https://docs.google.com/document/d/e/2PACX-1vRPBN0Eah0MDDBLH-J11n_RZ-A8lDJ4Tn9A0kqqEVeFkrx_bFQIuEOUQo24KqkZVKYRnt9SSKJe0x9p/pub"
+        href="https://drive.google.com/file/d/1Yx7b89xh5c9q3ONWMV72HiUGrh6MgyCO/view?usp=sharing"
         target="_blank"
       >
         Open resume on web
