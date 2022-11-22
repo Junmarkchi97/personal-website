@@ -8,8 +8,14 @@ function about() {
         I'm<span>Junmark !</span>
       </h3>
       <h3>
-        I help brands and companies solve problems and develop websites with
+        Creative and Responsible Web Developer based in Molave, Philippines. I help companies solve problems and develop websites with
         clean UI/UX.
+      </h3>
+      <p>
+        My current techstack involves working with ReactJS and Rails.
+      </p>
+      <h3>
+        Currently, I'm 
       </h3>
       <h2 className="technologies">Technologies</h2>
       <div className="technologies-logo">
@@ -21,6 +27,8 @@ function about() {
         <i className="fa-brands fa-github"></i>
       </div>
       <h2 className="educations">Education</h2>
+      <p>Avion School</p>
+      <p>Cebu Institute of Technology - University</p>
     </div>
   );
 }

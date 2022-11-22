@@ -16,7 +16,7 @@
 
       @for $i from 1 to 4 {
         &:nth-child(#{$i}) {
-          animation: contactInfo 1s ease #{$i * 0.1}s 1 normal forwards;
+          animation: contactInfo 0.5s ease #{$i * 0.1}s 1 normal forwards;
 
           @keyframes contactInfo {
             from {
@@ -89,7 +89,7 @@
     justify-content: center;
     border-radius: 10px;
     gap: 1rem;
-    animation: contactForm 1s ease 0s 1 normal forwards;
+    animation: contactForm $animation-transition ease 0s 1 normal forwards;
 
     @keyframes contactForm {
       from {

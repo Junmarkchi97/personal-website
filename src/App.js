@@ -126,7 +126,7 @@ function App() {
           JUNMARK <span>CHI</span>
         </div>
         <div className="intro-title" ref={introTitle}>
-          FULL-STACK DEVELOPER
+          SOFTWARE ENGINEER
         </div>
       </div>
       <div
