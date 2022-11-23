@@ -28,39 +28,49 @@ function App() {
     {
       id: "1",
       class: "project project1 grid-column-span-2",
-      src: "bukidmarkets.gif",
+      src: "gif/bukidmarkets.gif",
       alt: "bukidmarkets gif",
     },
-    { id: "2", class: "project project2", src: "aviom.gif", alt: "avion gif" },
+    {
+      id: "2",
+      class: "project project2",
+      src: "gif/aviom.gif",
+      alt: "avion gif",
+    },
     {
       id: "3",
       class: "project project3",
-      src: "tictactoe.gif",
+      src: "gif/tictactoe.gif",
       alt: "tictactoe gif",
     },
     {
       id: "4",
       class: "project project4 grid-column-span-2",
-      src: "momentum.gif",
+      src: "gif/momentum.gif",
       alt: "momentum gif",
     },
     {
       id: "5",
       class: "project project5",
-      src: "boknoy.gif",
+      src: "gif/boknoy.gif",
       alt: "boknoy gif",
     },
-    { id: "6", class: "project project6", src: "chess.gif", alt: "chess gif" },
+    {
+      id: "6",
+      class: "project project6",
+      src: "gif/chess.gif",
+      alt: "chess gif",
+    },
     {
       id: "7",
       class: "project project7",
-      src: "jackson.gif",
+      src: "gif/jackson.gif",
       alt: "jackson gif",
     },
     {
       id: "8",
       class: "project project8 grid-column-span-2",
-      src: "slack.gif",
+      src: "gif/slack.gif",
       alt: "slack gif",
     },
   ]);
@@ -127,9 +137,9 @@ function App() {
     const x = e.clientX;
     const y = e.clientY;
     viewProjectCursor.current.style.opacity = "1";
-    app.current.style.cursor = "none";
+    app.current.style.cursor = "pointer";
     viewProjectCursor.current.style.transform = `translate(${x - 48}px,${
-      y - 16
+      y - 30
     }px)`;
   };
 
@@ -148,9 +158,10 @@ function App() {
           JUNMARK <span>CHI</span>
         </div>
         <div className="intro-title" ref={introTitle}>
-          SOFTWARE ENGINEER
+          WEB DEVELOPER
         </div>
       </div>
+      11
       <div
         className="wrapper project-wrapper"
         ref={(e) => (wrapperRef.current[0] = e)}

@@ -4,13 +4,13 @@ import "../styles/resume.scss";
 function resume() {
   return (
     <div className="resume-container">
-      <button className="resume-download">
+      <a href="\Junmark Chi Resume.pdf" download="" className="resume-download">
         <i className="fa-solid fa-download"></i>
         <span>Download Resume</span>
-      </button>
+      </a>
       <h6>OR</h6>
       <a
-        href="https://drive.google.com/file/d/1Yx7b89xh5c9q3ONWMV72HiUGrh6MgyCO/view?usp=sharing"
+        href="https://docs.google.com/document/d/e/2PACX-1vQh887q6qwAvGJvgE6eFVcD5vTMZOSB64uEIAK-wH5ecvQImyhkT2bm-aRju6IsfysQYKv42SCee6pi/pub"
         target="_blank"
       >
         Open resume on web

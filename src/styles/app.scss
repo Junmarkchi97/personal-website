@@ -534,7 +534,7 @@ body {
   user-select: none;
   border-radius: 5em;
   opacity: 0;
-  transition: opacity 200ms ease;
+  transition:  transform 300ms ease-out, opacity 500ms ease;
 }
 
 /* Media Query for a minimum 800px screen width size*/
