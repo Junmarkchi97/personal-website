@@ -63,7 +63,7 @@ const ContactUs = () => {
         </div>
       </div>
       <form ref={form} onSubmit={sendEmail} className="contact-form">
-        <h2>Get in touch with me</h2>
+        <h2>Get in touch!</h2>
         <input
           className="input-name"
           type="text"

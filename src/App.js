@@ -29,18 +29,40 @@ function App() {
       id: "1",
       class: "project project1 grid-column-span-2",
       src: "bukidmarkets.gif",
+      alt: "bukidmarkets gif",
     },
-    { id: "2", class: "project project2", src: "aviom.gif" },
-    { id: "3", class: "project project3", src: "tictactoe.gif" },
+    { id: "2", class: "project project2", src: "aviom.gif", alt: "avion gif" },
+    {
+      id: "3",
+      class: "project project3",
+      src: "tictactoe.gif",
+      alt: "tictactoe gif",
+    },
     {
       id: "4",
       class: "project project4 grid-column-span-2",
       src: "momentum.gif",
+      alt: "momentum gif",
     },
-    { id: "5", class: "project project5", src: "boknoy.gif" },
-    { id: "6", class: "project project6", src: "chess.gif" },
-    { id: "7", class: "project project7", src: "jackson.gif" },
-    { id: "8", class: "project project8 grid-column-span-2", src: "slack.gif" },
+    {
+      id: "5",
+      class: "project project5",
+      src: "boknoy.gif",
+      alt: "boknoy gif",
+    },
+    { id: "6", class: "project project6", src: "chess.gif", alt: "chess gif" },
+    {
+      id: "7",
+      class: "project project7",
+      src: "jackson.gif",
+      alt: "jackson gif",
+    },
+    {
+      id: "8",
+      class: "project project8 grid-column-span-2",
+      src: "slack.gif",
+      alt: "slack gif",
+    },
   ]);
 
   const [navs, setNavs] = useState(["Projects", "About", "Contact", "Resume"]);
@@ -154,7 +176,7 @@ function App() {
               >
                 <div className="project-border"></div>
                 <div className="project-content">
-                  <img className="gif" src={project.src} />
+                  <img className="gif" src={project.src} alt={project.alt} />
                 </div>
               </div>
             );

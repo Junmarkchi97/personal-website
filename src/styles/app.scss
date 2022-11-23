@@ -60,7 +60,7 @@ body {
 
     .intro-name {
       position: absolute;
-      animation: intro 2s linear 0s 1 normal forwards;
+      animation: intro 1s linear 0s 1 normal forwards;
       font-size: 2rem;
       transition: 1000ms ease;
 
@@ -70,7 +70,7 @@ body {
     }
 
     .intro-title {
-      animation: intro 1.5s ease-in-out 1.5s 1 normal forwards;
+      animation: intro 1s ease-in-out 1.5s 1 normal forwards;
       opacity: 0;
       font-size: 1rem;
       transition: 500ms ease;
@@ -209,10 +209,12 @@ body {
             left: 0;
             z-index: 1;
             opacity: 0.7;
-            transition: opacity 500ms;
+            transition: 500ms;
+            filter: grayscale(0.2);
 
             &:hover {
               opacity: 1;
+              filter: grayscale(0);
             }
           }
         }
@@ -269,8 +271,8 @@ body {
     color: white;
     display: none;
     opacity: 0;
-    animation: aboutWrapper $animation-transition cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal
-      forwards;
+    animation: aboutWrapper $animation-transition
+      cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal forwards;
 
     @keyframes aboutWrapper {
       0% {
@@ -306,8 +308,8 @@ body {
     transition: opacity $animation-transition $transition-cubic;
     display: none;
     opacity: 0;
-    animation: contactWrapper 1s cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal
-      forwards;
+    animation: contactWrapper $animation-transition
+      cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal forwards;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -512,7 +514,7 @@ body {
         z-index: -1;
         left: 19px;
         background-color: rgba(255, 255, 255, 0.1);
-        transition: all $transition-cubic 1000ms;
+        transition: all $transition-cubic $animation-transition;
       }
     }
   }
@@ -543,7 +545,6 @@ body {
 
   html {
     overflow-y: scroll;
-    // overflow: hidden;
   }
 
   #app {
@@ -566,12 +567,8 @@ body {
         width: 90vw;
         padding: 0;
 
-        // grid-template-columns: 1fr;
-        // grid-template-rows: 8fr;
-        // height: auto;
         .project {
           width: 100%;
-          // height: auto;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -584,7 +581,7 @@ body {
             height: calc(100% - 10px);
             width: calc(100% - 10px);
 
-            .gif{
+            .gif {
               object-position: top;
             }
 
@@ -600,9 +597,8 @@ body {
       }
     }
 
-    .about-wrapper{
+    .about-wrapper {
       overflow-y: scroll;
-
     }
   }
 

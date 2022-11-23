@@ -12,11 +12,8 @@ function about() {
         clean UI/UX.
       </h3>
       <p>
-        My current techstack involves working with ReactJS and Rails.
+        {/* My current techstack involves working with ReactJS and Rails. */}
       </p>
-      <h3>
-        Currently, I'm 
-      </h3>
       <h2 className="technologies">Technologies</h2>
       <div className="technologies-logo">
         <i className="fa-brands fa-square-js"></i>
