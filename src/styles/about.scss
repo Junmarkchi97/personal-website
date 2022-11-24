@@ -13,8 +13,11 @@
   }
 
   .technologies-logo {
-    font-size: 4em;
+    // font-size: 4em;
     color: rgba(255, 255, 255, 0.3);
+    img {
+      height: 3em;
+    }
   }
 
   h3 {
@@ -35,7 +38,7 @@
 }
 
 @media (max-width: 800px) {
-  .about-container{
+  .about-container {
     padding: 0;
   }
 }

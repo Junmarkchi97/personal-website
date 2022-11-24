@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  animation: resumeContainer 1s ease 0s 1 normal forwards;
+  animation: resumeContainer $animation-transition ease 0s 1 normal forwards;
 
   @keyframes resumeContainer {
     from {
@@ -24,9 +24,10 @@
     border: none;
     border-radius: 10px;
     outline: none;
-    padding: 0.7em 1em;
+    padding: 0.6em 0.8em;
     font-family: "FreeSans", sans-serif;
     background-color: $primary-color;
+    font-size: 0.9rem;
     text-align: center;
     cursor: pointer;
     color: $color-white;
@@ -72,7 +73,7 @@
     }
   }
 
-  a {
-    color: $color-white;
+  .new-tab {
+    color: $text-dark-color;
   }
 }
