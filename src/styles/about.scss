@@ -12,15 +12,18 @@
   }
 
   .technologies-logo {
-    // font-size: 4em;
     color: rgba(255, 255, 255, 0.3);
     img {
       height: 3em;
     }
   }
 
-  .education-container {
-    // border: 1px solid white;
+  .timeline-container {
+    .timeline-title {
+      color: $primary-color;
+      text-align: center;
+      margin-top: 1em;
+    }
 
     .current {
       display: flex;
@@ -40,7 +43,7 @@
         flex-direction: column;
         align-items: flex-start;
         width: 30rem;
-        height: 10rem;
+        height: auto;
         padding-left: 4rem;
         padding-bottom: 4rem;
         position: relative;
@@ -60,21 +63,217 @@
         }
 
         .current-post {
-          border: 1px solid white;
-          height: 5rem;
+          height: auto;
           width: 100%;
+          border-radius: 5px;
+          padding: 1.5rem;
+          margin-top: 1rem;
+          background-color: $background-color2;
+
+          .post-header {
+            display: flex;
+            justify-content: space-between;
+
+            .header-profile {
+              display: inherit;
+              align-items: center;
+
+              a {
+                display: inherit;
+                align-items: center;
+                img {
+                  width: 2.5rem;
+                  height: 2.5rem;
+                  border-radius: 100%;
+                  border: 1px solid $primary-color;
+                  cursor: pointer;
+                  transition: opacity 200ms;
+
+                  &:hover {
+                    opacity: 0.8;
+                  }
+                }
+              }
+
+              .profile-details {
+                display: inherit;
+                flex-direction: column;
+                margin-left: 0.5rem;
+
+                span {
+                  &:nth-child(1) {
+                    color: $color-white;
+                  }
+
+                  &:nth-child(2) {
+                    font-size: 0.7rem;
+                  }
+                }
+              }
+            }
+
+            a {
+              display: inherit;
+              align-items: center;
+
+              i {
+                align-self: center;
+                font-size: 2rem;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                transition: color 200ms;
+                color: $text-dark-color;
+
+                &:hover {
+                  color: $text-dark-color2;
+                }
+              }
+            }
+          }
+
+          .post-caption {
+            font-size: 0.8rem;
+          }
+
+          .post-image {
+            width: 100%;
+            border-radius: 10px;
+          }
         }
       }
     }
 
-    .avion,
-    .cit {
-      // border: 1px solid white;
+    .avion {
       display: flex;
       justify-content: center;
       color: $text-dark-color;
 
-      .avion-date,
+      .avion-date {
+        width: 8rem;
+        margin-right: 4em;
+        display: inherit;
+        flex-direction: column;
+
+        p {
+          margin: 0;
+          align-self: flex-end;
+        }
+      }
+
+      .avion-info {
+        display: inherit;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30rem;
+        height: auto;
+        padding-left: 4rem;
+        padding-bottom: 4rem;
+        position: relative;
+        border-left: 1px solid $text-dark-color2;
+
+        &::before {
+          content: "";
+          position: absolute;
+          border: 1px solid white;
+          background-color: $background-color2;
+          left: -7px;
+          top: -6px;
+          height: 13px;
+          width: 13px;
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px $text-dark-color2;
+        }
+
+        .avion-post {
+          height: auto;
+          width: 100%;
+          border-radius: 5px;
+          padding: 1.5rem;
+          margin-top: 1rem;
+          background-color: $background-color2;
+
+          .post-header {
+            display: flex;
+            justify-content: space-between;
+
+            .header-profile {
+              display: inherit;
+              align-items: center;
+
+              a {
+                display: inherit;
+                align-items: center;
+
+                img {
+                  width: 2.5rem;
+                  height: 2.5rem;
+                  border-radius: 100%;
+                  border: 1px solid $primary-color;
+                  cursor: pointer;
+                  transition: opacity 200ms;
+
+                  &:hover {
+                    opacity: 0.8;
+                  }
+                }
+              }
+
+              .profile-details {
+                display: inherit;
+                flex-direction: column;
+                margin-left: 0.5rem;
+
+                span {
+                  &:nth-child(1) {
+                    color: $color-white;
+                  }
+
+                  &:nth-child(2) {
+                    font-size: 0.7rem;
+                  }
+                }
+              }
+            }
+
+            a {
+              display: inherit;
+              align-items: center;
+
+              i {
+                align-self: center;
+                font-size: 2rem;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                transition: color 200ms;
+                color: $text-dark-color;
+
+                &:hover {
+                  color: $text-dark-color2;
+                }
+              }
+            }
+          }
+
+          .post-caption {
+            font-size: 0.8rem;
+          }
+
+          .post-image {
+            width: 100%;
+            height: 14rem;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+
+    .cit {
+      display: flex;
+      justify-content: center;
+      color: $text-dark-color;
+
       .cit-date {
         width: 8rem;
         margin-right: 4em;
@@ -87,40 +286,100 @@
         }
       }
 
-      .avion-info,
       .cit-info {
         display: inherit;
+        flex-direction: column;
         align-items: flex-start;
         width: 30rem;
-        height: 10rem;
+        height: auto;
         padding-left: 4rem;
         padding-bottom: 4rem;
-        border-left: 1px solid gray;
         position: relative;
+        // border-left: 1px solid $text-dark-color2;
 
         &::before {
           content: "";
           position: absolute;
           border: 1px solid white;
-          background-color: $color-black;
+          background-color: $background-color2;
           left: -7px;
           top: -6px;
           height: 13px;
           width: 13px;
           border-radius: 50%;
-          box-shadow: 0 0 0 5px $primary-color2;
+          box-shadow: 0 0 0 3px $text-dark-color2;
         }
 
-        p {
-          margin: 0;
+        .cit-post {
+          height: auto;
+          width: 100%;
+          border-radius: 5px;
+          padding: 1.5rem;
+          margin-top: 1rem;
+          background-color: $background-color2;
+
+          .post-header {
+            display: flex;
+            justify-content: space-between;
+
+            .header-profile {
+              display: inherit;
+              align-items: center;
+
+              img {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 100%;
+                border: 1px solid $primary-color;
+                cursor: pointer;
+                transition: opacity 200ms;
+
+                &:hover {
+                  opacity: 0.8;
+                }
+              }
+
+              .profile-details {
+                display: inherit;
+                flex-direction: column;
+                margin-left: 0.5rem;
+
+                span {
+                  &:nth-child(1) {
+                    color: $color-white;
+                    font-size: 0.9rem;
+                  }
+
+                  &:nth-child(2) {
+                    font-size: 0.7rem;
+                  }
+                }
+              }
+            }
+
+            i {
+              align-self: center;
+              font-size: 2rem;
+              margin-right: 0.5rem;
+              cursor: pointer;
+              transition: color 200ms;
+
+              &:hover {
+                color: $text-dark-color2;
+              }
+            }
+          }
+
+          .post-image {
+            width: 100%;
+            height: 14rem;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            margin-top: 1rem;
+          }
         }
       }
-    }
-
-    .education-title {
-      color: $primary-color;
-      text-align: center;
-      margin-top: 1em;
     }
   }
 

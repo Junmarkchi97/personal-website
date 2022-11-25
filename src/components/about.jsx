@@ -42,16 +42,43 @@ function About() {
           })}
         </section>
       </div>
-      <div className="education-container">
-        <h2 className="education-title">Education</h2>
+      <div className="timeline-container">
+        <h2 className="timeline-title">Timeline</h2>
         <div className="current">
           <div className="current-date">Currently</div>
           <div className="current-info">
             <div>
-              Currently studying ThreeJS and Iterating on this website and
+              Currently exploring ThreeJS and Iterating on this website and
               previous projects.
             </div>
-            <div className="current-post"></div>
+            <div className="current-post">
+              <div className="post-header">
+                <div className="header-profile">
+                  <a
+                    href="https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop"
+                    target="_blank"
+                  >
+                    <img src="profile.jpg" />
+                  </a>
+                  <div className="profile-details">
+                    <span>Junmark Chi</span>
+                    <span>Web Developer | ReactJS | Ruby on Rails</span>
+                  </div>
+                </div>
+                <a
+                  href="https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              </div>
+              <p className="post-caption">
+                I just started my journey into learning Three.js. I've always
+                been curious about how those excellent 3D websites are made....
+              </p>
+              <img src="post/current.png" className="post-image" />
+              <div className="post-footer"></div>
+            </div>
           </div>
         </div>
         <div className="avion">
@@ -61,15 +88,64 @@ function About() {
             <p>2022</p>
           </div>
           <div className="avion-info">
-            Full-Stack Web Development - Avion School
+            <div>
+              Finished a Full-Stack Web Development Course from Avion School
+              Bootcamp
+            </div>
+            <div className="avion-post">
+              <div className="post-header">
+                <div className="header-profile">
+                  <a
+                    href="https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop"
+                    target="_blank"
+                  >
+                    <img src="profile.jpg" />
+                  </a>
+                  <div className="profile-details">
+                    <span>Junmark Chi</span>
+                    <span>Web Developer | ReactJS | Ruby on Rails</span>
+                  </div>
+                </div>
+                <a
+                  href="https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              </div>
+              <p className="post-caption">
+                I'm happy to share that I've obtained a Certificate of
+                Completion for Full Stack Web Development from Avion School!
+              </p>
+              <img src="post/avion.jpg" className="post-image" />
+              <div className="post-footer"></div>
+            </div>
           </div>
         </div>
         <div className="cit">
           <div className="cit-date">
             <p>5 Years</p>
+            <p>2014 - 2019</p>
           </div>
           <div className="cit-info">
-            BS Electrical Engineering - Cebu Institute of Technology-University
+            <div>
+              Graduated from college with a BS Electrical Engineering Diploma
+              from Cebu Institute of Technology-University
+            </div>
+            <div className="cit-post">
+              <div className="post-header">
+                <div className="header-profile">
+                  <img src="school.png" />
+                  <div className="profile-details">
+                    <span>Cebu Institute of Technology-University</span>
+                    <span>A top academic institution continuously...</span>
+                  </div>
+                </div>
+                <i class="fa-brands fa-linkedin"></i>
+              </div>
+              <img src="post/cit.jpg" className="post-image" />
+              <div className="post-footer"></div>
+            </div>
           </div>
         </div>
       </div>
