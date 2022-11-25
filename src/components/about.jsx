@@ -21,10 +21,10 @@ function About() {
     { src: "technologies/rails.png" },
     { src: "technologies/react.png" },
     { src: "technologies/ruby.png" },
-    { src: "technologies/sass.png" },
-    { src: "technologies/tailwind.png" },
-    { src: "technologies/typescript.png" },
-    { src: "technologies/vscode.png" },
+    // { src: "technologies/sass.png" },
+    // { src: "technologies/tailwind.png" },
+    // { src: "technologies/typescript.png" },
+    // { src: "technologies/vscode.png" },
   ]);
 
   const handleOnScrollAbout = () => {
@@ -53,20 +53,24 @@ function About() {
       ref={aboutContainer}
       onScroll={handleOnScrollAbout}
     >
-      <h3>
-        I'm<span>Junmark !</span>
-      </h3>
-      <h3>
-        Creative and Responsible Web Developer based in Philippines. I help
-        clients develop websites from the ground up.
-      </h3>
-      <h2 className="technology-title">Technologies</h2>
-      <div className="technologies-logo">
-        <section className="carousel-slider">
-          {tech.map((t, idx) => {
-            return <img src={t.src} key={idx} />;
-          })}
-        </section>
+      <div className="about-intro">
+        <h3>
+          I'm<span>Junmark !</span>
+        </h3>
+        <h3>
+          Creative and Responsible Web Developer based in Philippines. I help
+          clients develop websites from the ground up.
+        </h3>
+      </div>
+      <div className="technology-container">
+        <h2 className="technology-title">Technologies</h2>
+        <div className="technologies-logo">
+          <section className="carousel-slider">
+            {tech.map((t, idx) => {
+              return <img src={t.src} key={idx} />;
+            })}
+          </section>
+        </div>
       </div>
       <div className="timeline-container">
         <h2 className="timeline-title">Timeline</h2>
@@ -74,7 +78,7 @@ function About() {
           <div className="current-date">Currently</div>
           <div className="current-info">
             <div>
-              Currently exploring ThreeJS and Iterating on this website and
+              Currently exploring ThreeJS and Iterating this website and
               previous projects.
             </div>
             <div className="current-post">

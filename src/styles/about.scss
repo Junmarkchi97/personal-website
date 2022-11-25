@@ -1,25 +1,50 @@
 @import "./variables";
 
 .about-container {
-  width: 50rem;
-  max-width: 80%;
+  width: 100%;
   padding: 0 2rem;
   overflow-y: scroll;
+  display: grid;
+  place-items: center;
 
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 
-  .technology-title {
-    color: $primary-color;
-    text-align: center;
-    margin-top: 1em;
+  .about-intro {
+    width: 50rem;
+
+    h3 {
+      font-weight: 100;
+      color: $text-dark-color;
+      span {
+        margin-left: 0.3em;
+        font-size: 2em;
+        font-family: "Dancing Script", cursive;
+        color: $primary-color;
+      }
+    }
+
+    p {
+      font-weight: 100;
+      color: $text-dark-color;
+    }
   }
 
-  .technologies-logo {
-    color: rgba(255, 255, 255, 0.3);
-    img {
-      height: 3em;
+  .technology-container {
+    width: 50rem;
+
+    .technology-title {
+      color: $primary-color;
+      text-align: center;
+      margin-top: 2em;
+    }
+
+    .technologies-logo {
+      color: rgba(255, 255, 255, 0.3);
+      img {
+        height: 3em;
+      }
     }
   }
 
@@ -27,7 +52,7 @@
     .timeline-title {
       color: $primary-color;
       text-align: center;
-      margin-top: 1em;
+      margin-top: 3em;
     }
 
     .current {
@@ -71,10 +96,11 @@
         .current-post {
           height: auto;
           width: 100%;
-          border-radius: 5px;
+          border-radius: 10px;
           padding: 1.5rem;
           margin-top: 1rem;
           background-color: $background-color2;
+          box-shadow: inset 0 0 1px $text-dark-color2;
 
           .post-header {
             display: flex;
@@ -154,6 +180,7 @@
       justify-content: center;
       color: $text-dark-color;
       transition: opacity 400ms;
+      opacity: 0.4;
 
       .avion-date {
         width: 8rem;
@@ -194,10 +221,11 @@
         .avion-post {
           height: auto;
           width: 100%;
-          border-radius: 5px;
+          border-radius: 10px;
           padding: 1.5rem;
           margin-top: 1rem;
           background-color: $background-color2;
+          box-shadow: inset 0 0 1px $text-dark-color2;
 
           .post-header {
             display: flex;
@@ -281,6 +309,7 @@
       justify-content: center;
       color: $text-dark-color;
       transition: opacity 400ms;
+      opacity: 0.4;
 
       .cit-date {
         width: 8rem;
@@ -321,10 +350,11 @@
         .cit-post {
           height: auto;
           width: 100%;
-          border-radius: 5px;
+          border-radius: 10px;
           padding: 1.5rem;
           margin-top: 1rem;
           background-color: $background-color2;
+          box-shadow: inset 0 0 1px $text-dark-color2;
 
           .post-header {
             display: flex;
@@ -389,22 +419,6 @@
         }
       }
     }
-  }
-
-  h3 {
-    font-weight: 100;
-    color: $text-dark-color;
-    span {
-      margin-left: 0.3em;
-      font-size: 2em;
-      font-family: "Dancing Script", cursive;
-      color: $primary-color;
-    }
-  }
-
-  p {
-    font-weight: 100;
-    color: $text-dark-color;
   }
 }
 
