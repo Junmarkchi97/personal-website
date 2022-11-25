@@ -34,7 +34,7 @@ function About() {
         Creative and Responsible Web Developer based in Philippines. I help
         clients develop websites from the ground up.
       </h3>
-      <h2 className="technologies">Technologies</h2>
+      <h2 className="technology-title">Technologies</h2>
       <div className="technologies-logo">
         <section className="carousel-slider">
           {tech.map((t, idx) => {
@@ -42,9 +42,37 @@ function About() {
           })}
         </section>
       </div>
-      <h2 className="educations">Education</h2>
-      <p>Avion School</p>
-      <p>Cebu Institute of Technology - University</p>
+      <div className="education-container">
+        <h2 className="education-title">Education</h2>
+        <div className="current">
+          <div className="current-date">Currently</div>
+          <div className="current-info">
+            <div>
+              Currently studying ThreeJS and Iterating on this website and
+              previous projects.
+            </div>
+            <div className="current-post"></div>
+          </div>
+        </div>
+        <div className="avion">
+          <div className="avion-date">
+            <p>7 Months</p>
+            <p>March - October</p>
+            <p>2022</p>
+          </div>
+          <div className="avion-info">
+            Full-Stack Web Development - Avion School
+          </div>
+        </div>
+        <div className="cit">
+          <div className="cit-date">
+            <p>5 Years</p>
+          </div>
+          <div className="cit-info">
+            BS Electrical Engineering - Cebu Institute of Technology-University
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -265,7 +265,7 @@ body {
   }
 
   .about-wrapper {
-    height: 80vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     color: white;
@@ -273,6 +273,11 @@ body {
     opacity: 0;
     animation: aboutWrapper $animation-transition
       cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal forwards;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+      width: 0;
+    }
 
     @keyframes aboutWrapper {
       0% {
@@ -318,12 +323,12 @@ body {
 
     @keyframes contactWrapper {
       0% {
-        scale: 1.3;
+        // scale: 1.3;
         opacity: 0;
       }
 
       100% {
-        scale: 1;
+        // scale: 1;
         opacity: 1;
       }
     }
@@ -489,21 +494,9 @@ body {
         background-color: $primary-color;
         transition: all $transition-cubic 500ms;
         box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
-        animation: pulse 2s infinite;
+        animation: pulse 1s infinite;
 
-        @keyframes pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-          }
-
-          70% {
-            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-          }
-
-          100% {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-          }
-        }
+        
       }
 
       .clicked {
