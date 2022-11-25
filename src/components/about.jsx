@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/about.scss";
 
 function About() {
+  const aboutContainer = useRef(null);
+  const posts = useRef([]);
   const [tech, setTech] = useState([
     { src: "technologies/bootstrap.png" },
     { src: "technologies/canva.png" },
@@ -25,8 +27,32 @@ function About() {
     { src: "technologies/vscode.png" },
   ]);
 
+  const handleOnScrollAbout = () => {
+    const scrollValue = aboutContainer.current.scrollTop;
+    const maxVal =
+      aboutContainer.current.scrollHeight - aboutContainer.current.clientHeight;
+
+    if (scrollValue <= maxVal * 0.5) {
+      posts.current[0].style.opacity = "1";
+      posts.current[1].style.opacity = "0.4";
+      posts.current[2].style.opacity = "0.4";
+    } else if (scrollValue <= maxVal * 0.95 && scrollValue >= maxVal * 0.5) {
+      posts.current[0].style.opacity = "0.4";
+      posts.current[1].style.opacity = "1";
+      posts.current[2].style.opacity = "0.4";
+    } else {
+      posts.current[0].style.opacity = "0.4";
+      posts.current[1].style.opacity = "0.4";
+      posts.current[2].style.opacity = "1";
+    }
+  };
+
   return (
-    <div className="about-container">
+    <div
+      className="about-container"
+      ref={aboutContainer}
+      onScroll={handleOnScrollAbout}
+    >
       <h3>
         I'm<span>Junmark !</span>
       </h3>
@@ -44,7 +70,7 @@ function About() {
       </div>
       <div className="timeline-container">
         <h2 className="timeline-title">Timeline</h2>
-        <div className="current">
+        <div className="current" ref={(e) => (posts.current[0] = e)}>
           <div className="current-date">Currently</div>
           <div className="current-info">
             <div>
@@ -69,7 +95,7 @@ function About() {
                   href="https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop"
                   target="_blank"
                 >
-                  <i class="fa-brands fa-linkedin"></i>
+                  <i className="fa-brands fa-linkedin"></i>
                 </a>
               </div>
               <p className="post-caption">
@@ -81,7 +107,7 @@ function About() {
             </div>
           </div>
         </div>
-        <div className="avion">
+        <div className="avion" ref={(e) => (posts.current[1] = e)}>
           <div className="avion-date">
             <p>7 Months</p>
             <p>March - October</p>
@@ -110,7 +136,7 @@ function About() {
                   href="https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop"
                   target="_blank"
                 >
-                  <i class="fa-brands fa-linkedin"></i>
+                  <i className="fa-brands fa-linkedin"></i>
                 </a>
               </div>
               <p className="post-caption">
@@ -122,7 +148,7 @@ function About() {
             </div>
           </div>
         </div>
-        <div className="cit">
+        <div className="cit" ref={(e) => (posts.current[2] = e)}>
           <div className="cit-date">
             <p>5 Years</p>
             <p>2014 - 2019</p>
@@ -141,7 +167,7 @@ function About() {
                     <span>A top academic institution continuously...</span>
                   </div>
                 </div>
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </div>
               <img src="post/cit.jpg" className="post-image" />
               <div className="post-footer"></div>

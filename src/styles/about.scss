@@ -4,6 +4,11 @@
   width: 50rem;
   max-width: 80%;
   padding: 0 2rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
 
   .technology-title {
     color: $primary-color;
@@ -29,6 +34,7 @@
       display: flex;
       justify-content: center;
       color: $text-dark-color;
+      transition: opacity 400ms;
 
       .current-date {
         width: 8rem;
@@ -147,6 +153,7 @@
       display: flex;
       justify-content: center;
       color: $text-dark-color;
+      transition: opacity 400ms;
 
       .avion-date {
         width: 8rem;
@@ -273,6 +280,7 @@
       display: flex;
       justify-content: center;
       color: $text-dark-color;
+      transition: opacity 400ms;
 
       .cit-date {
         width: 8rem;

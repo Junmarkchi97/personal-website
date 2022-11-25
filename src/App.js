@@ -148,6 +148,8 @@ function App() {
     app.current.style.cursor = "default";
   };
 
+  
+
   return (
     <div id="app" ref={app}>
       <div className="view-project-cursor" ref={viewProjectCursor}>
