@@ -148,8 +148,6 @@ function App() {
     app.current.style.cursor = "default";
   };
 
-  
-
   return (
     <div id="app" ref={app}>
       <div className="view-project-cursor" ref={viewProjectCursor}>
@@ -249,7 +247,6 @@ function App() {
           <div className="clicked"></div>
         </div>
       </div>
-      <div id="maintenance">Website Under Construction</div>
     </div>
   );
 }

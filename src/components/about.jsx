@@ -53,7 +53,7 @@ function About() {
       ref={aboutContainer}
       onScroll={handleOnScrollAbout}
     >
-      <div className="about-intro">
+      <div className="container about-intro">
         <h3>
           I'm<span>Junmark !</span>
         </h3>
@@ -62,7 +62,7 @@ function About() {
           clients develop websites from the ground up.
         </h3>
       </div>
-      <div className="technology-container">
+      <div className="container technology-container">
         <h2 className="technology-title">Technologies</h2>
         <div className="technologies-logo">
           <section className="carousel-slider">
@@ -72,7 +72,7 @@ function About() {
           </section>
         </div>
       </div>
-      <div className="timeline-container">
+      <div className="container timeline-container">
         <h2 className="timeline-title">Timeline</h2>
         <div className="current" ref={(e) => (posts.current[0] = e)}>
           <div className="current-date">Currently</div>
