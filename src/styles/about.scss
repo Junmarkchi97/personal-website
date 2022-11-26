@@ -49,6 +49,7 @@
 
   .about-intro {
     width: 50rem;
+    max-width: 90%;
     opacity: 0;
 
     h3 {
@@ -531,6 +532,315 @@
 
 @media (max-width: 800px) {
   .about-container {
-    // padding: 0;
+    padding: 0;
+    align-items: flex-start;
+
+    &::before {
+      box-shadow: 0 0 10px 10px $color-black;
+    }
+
+    .about-intro {
+      width: 90%;
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    .technology-container {
+      width: 90%;
+      height: 7rem;
+
+      &::before {
+        box-shadow: 0 0 10px 10px $color-black;
+      }
+
+      &::after {
+        box-shadow: 0 0 10px 10px $color-black;
+      }
+
+      .technology-title {
+        color: $primary-color;
+        text-align: center;
+        margin-top: 1em;
+        font-size: 1.2rem;
+      }
+
+      .technologies-logo {
+        .carousel-slider {
+          display: flex;
+          position: absolute;
+          left: 0;
+          width: 200%;
+
+          &:hover {
+            animation-play-state: running;
+          }
+
+          .image-container {
+            img {
+              width: 2rem;
+            }
+          }
+        }
+      }
+    }
+
+    .timeline-container {
+      opacity: 0;
+      width: 90%;
+
+      .timeline-title {
+        color: $primary-color;
+        text-align: center;
+        margin: 0em 0 1em 0;
+        font-size: 1.2rem;
+      }
+
+      .current {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .current-caption {
+          font-size: 0.9rem;
+        }
+
+        .current-date {
+          width: 8rem;
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: flex-start;
+          padding-left: 5vw;
+        }
+
+        .current-info {
+          align-items: flex-start;
+          width: 100%;
+          height: auto;
+          padding-left: 5vw;
+          padding-bottom: 3vh;
+
+          .current-post {
+            padding: 4vw;
+
+            .post-header {
+              display: flex;
+              justify-content: space-between;
+
+              .header-profile {
+                a {
+                  img {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                  }
+                }
+
+                .profile-details {
+                  display: inherit;
+                  flex-direction: column;
+                  margin-left: 0.5rem;
+
+                  span {
+                    &:nth-child(1) {
+                      color: $color-white;
+                      font-size: 0.9rem;
+                    }
+
+                    &:nth-child(2) {
+                      font-size: 0.6rem;
+                    }
+                  }
+                }
+              }
+
+              a {
+                display: inherit;
+                align-items: center;
+
+                i {
+                  font-size: 1.5rem;
+                }
+              }
+            }
+
+            .post-caption {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+
+      .avion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .avion-date {
+          display: flex;
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: flex-start;
+          padding-left: 5vw;
+
+          p {
+            display: none;
+          }
+        }
+
+        .avion-info {
+          align-items: flex-start;
+          width: 100%;
+          height: auto;
+          padding-left: 5vw;
+          padding-bottom: 3vh;
+
+          .avion-caption {
+            font-size: 0.8rem;
+          }
+
+          .avion-post {
+            padding: 4vw;
+
+            .post-header {
+              display: flex;
+              justify-content: space-between;
+
+              .header-profile {
+                a {
+                  img {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                  }
+                }
+
+                .profile-details {
+                  display: inherit;
+                  flex-direction: column;
+                  margin-left: 0.5rem;
+
+                  span {
+                    &:nth-child(1) {
+                      color: $color-white;
+                      font-size: 0.9rem;
+                    }
+
+                    &:nth-child(2) {
+                      font-size: 0.6rem;
+                    }
+                  }
+                }
+              }
+
+              a {
+                display: inherit;
+                align-items: center;
+
+                i {
+                  font-size: 1.5rem;
+                }
+              }
+            }
+
+            .post-caption {
+              font-size: 0.7rem;
+            }
+
+            .post-image {
+              width: 100%;
+              height: auto;
+              object-fit: cover;
+              object-position: center;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+
+      .cit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .cit-date {
+          display: flex;
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: flex-start;
+          padding-left: 5vw;
+
+          p {
+            display: none;
+          }
+        }
+
+        .cit-info {
+          align-items: flex-start;
+          width: 100%;
+          height: auto;
+          padding-left: 5vw;
+          padding-bottom: 5vh;
+
+          .cit-caption {
+            font-size: 0.8rem;
+          }
+
+          .cit-post {
+            padding: 4vw;
+
+            .post-header {
+              display: flex;
+              justify-content: space-between;
+
+              .header-profile {
+                // a {
+                img {
+                  width: 2.2rem;
+                  height: 2.2rem;
+                }
+                // }
+
+                .profile-details {
+                  display: inherit;
+                  flex-direction: column;
+                  margin-left: 0.5rem;
+
+                  span {
+                    &:nth-child(1) {
+                      color: $color-white;
+                      font-size: 0.9rem;
+                    }
+
+                    &:nth-child(2) {
+                      font-size: 0.6rem;
+                    }
+                  }
+                }
+              }
+
+              // a {
+              //   display: inherit;
+              //   align-items: center;
+
+              i {
+                font-size: 1.5rem;
+              }
+              // }
+            }
+
+            .post-image {
+              width: 100%;
+              height: auto;
+              object-fit: cover;
+              object-position: center;
+              border-radius: 10px;
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+    }
   }
 }

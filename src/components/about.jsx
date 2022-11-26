@@ -88,9 +88,9 @@ function About() {
         <div className="current" ref={(e) => (posts.current[0] = e)}>
           <div className="current-date">Currently</div>
           <div className="current-info">
-            <div>
-              Currently exploring ThreeJS and Iterating this website and
-              previous projects.
+            <div className="current-caption">
+              Exploring ThreeJS and Iterating this website and previous
+              projects.
             </div>
             <div className="current-post">
               <div className="post-header">
@@ -129,7 +129,7 @@ function About() {
             <p>2022</p>
           </div>
           <div className="avion-info">
-            <div>
+            <div className="avion-caption">
               Finished a Full-Stack Web Development Course from Avion School
               Bootcamp
             </div>
@@ -169,7 +169,7 @@ function About() {
             <p>2014 - 2019</p>
           </div>
           <div className="cit-info">
-            <div>
+            <div className="cit-caption">
               Graduated from college with a BS Electrical Engineering Diploma
               from Cebu Institute of Technology-University
             </div>
