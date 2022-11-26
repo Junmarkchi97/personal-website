@@ -8,15 +8,14 @@ function About() {
     // { src: "technologies/bootstrap.png" },
     // { src: "technologies/canva.png" },
     // { src: "technologies/git.png" },
-    { src: "technologies/github.png" },
     // { src: "technologies/insomnia.png" },
+    { src: "technologies/tailwind.png" },
     { src: "technologies/javascript.png" },
     { src: "technologies/typescript.png" },
     { src: "technologies/react.png" },
     { src: "technologies/html.png" },
     { src: "technologies/css.png" },
     { src: "technologies/sass.png" },
-    { src: "technologies/tailwind.png" },
     // { src: "technologies/mysql.png" },
     // { src: "technologies/netlify.png" },
     // { src: "technologies/node.png" },
@@ -24,6 +23,7 @@ function About() {
     // { src: "technologies/postman.png" },
     { src: "technologies/rails.png" },
     { src: "technologies/ruby.png" },
+    { src: "technologies/github.png" },
     // { src: "technologies/vscode.png" },
   ]);
 
@@ -59,7 +59,7 @@ function About() {
     >
       <div className="container about-intro">
         <h3>
-          I'm<span>Junmark !</span>
+          Hello, I'm<span>Junmark !</span>
         </h3>
         <h3>
           Creative and Responsible Web Developer based in Philippines. I help

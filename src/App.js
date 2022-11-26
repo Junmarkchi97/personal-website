@@ -75,7 +75,7 @@ function App() {
     },
   ]);
 
-  const [navs, setNavs] = useState(["Projects", "About", "Contact", "Resume"]);
+  const [navs, setNavs] = useState(["About", "Projects", "Contact", "Resume"]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -148,18 +148,33 @@ function App() {
     app.current.style.cursor = "default";
   };
 
+  const handleClickHeader = (e) => {
+    nav.current.dataset.activeIndex = 0;
+    app.current.dataset.clickedNav = 0;
+  };
+
   return (
     <div id="app" ref={app}>
       <div className="view-project-cursor" ref={viewProjectCursor}>
         View Project
       </div>
       <div className="intro-container" ref={introContainer}>
-        <div className="intro-name" ref={introName}>
+        <div className="intro-name" ref={introName} onClick={handleClickHeader}>
           JUNMARK <span>CHI</span>
         </div>
-        <div className="intro-title" ref={introTitle}>
-          FRONT-END DEVELOPER
+        <div
+          className="intro-title"
+          ref={introTitle}
+          onClick={handleClickHeader}
+        >
+          FRONT END DEVELOPER
         </div>
+      </div>
+      <div
+        className="wrapper about-wrapper"
+        ref={(e) => (wrapperRef.current[1] = e)}
+      >
+        <About />
       </div>
       <div
         className="wrapper project-wrapper"
@@ -194,12 +209,7 @@ function App() {
         </div>
         <div className="project-shade-bottom" ref={projectShadeBottom}></div>
       </div>
-      <div
-        className="wrapper about-wrapper"
-        ref={(e) => (wrapperRef.current[1] = e)}
-      >
-        <About />
-      </div>
+
       <div
         className="wrapper contact-wrapper"
         ref={(e) => (wrapperRef.current[2] = e)}

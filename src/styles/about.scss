@@ -7,13 +7,24 @@
   display: grid;
   place-items: center;
 
+  &::before {
+    content: "";
+    height: 0px;
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    box-shadow: 0 0 30px 40px $color-black;
+  }
+
   @for $i from 1 to 4 {
     .container:nth-child(#{$i}) {
       animation: aboutPageTransition
         $animation-transition
         ease
         #{$i *
-        0.1}s
+        0.15}s
         1
         normal
         forwards;
@@ -43,6 +54,7 @@
     h3 {
       font-weight: 100;
       color: $text-dark-color;
+
       span {
         margin-left: 0.3em;
         font-size: 2em;
@@ -65,7 +77,7 @@
     overflow: hidden;
     position: relative;
 
-    &::before{
+    &::before {
       content: "";
       height: 100%;
       width: 0px;
@@ -73,10 +85,10 @@
       position: absolute;
       left: 0;
       z-index: 2;
-      box-shadow: 0 0 100px 50px $color-black;
+      box-shadow: 0 0 30px 40px $color-black;
     }
 
-    &::after{
+    &::after {
       content: "";
       height: 100%;
       width: 0px;
@@ -84,7 +96,7 @@
       position: absolute;
       right: 0;
       z-index: 2;
-      box-shadow: 0 0 100px 50px $color-black;
+      box-shadow: 0 0 30px 40px $color-black;
     }
 
     .technology-title {
@@ -106,14 +118,24 @@
         left: 0;
         width: 200%;
 
+        &:hover {
+          animation-play-state: paused;
+        }
         animation: marquee 20s linear infinite;
-        gap: 1em;
+
+        @keyframes marquee {
+          from {
+            left: 0;
+          }
+          to {
+            left: -100%;
+          }
+        }
 
         .image-container {
           width: 50%;
           display: flex;
           justify-content: space-around;
-          gap: 1rem;
 
           img {
             width: 4rem;
@@ -127,15 +149,6 @@
             }
           }
         }
-
-        @keyframes marquee {
-          from {
-            left: 0;
-          }
-          to {
-            left: -100%;
-          }
-        }
       }
     }
   }
@@ -146,7 +159,7 @@
     .timeline-title {
       color: $primary-color;
       text-align: center;
-      margin-top: 2em;
+      margin: 1em 0 2em 0;
     }
 
     .current {
@@ -518,6 +531,6 @@
 
 @media (max-width: 800px) {
   .about-container {
-    padding: 0;
+    // padding: 0;
   }
 }

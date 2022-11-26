@@ -27,12 +27,12 @@ body {
   width: 100vw;
   perspective: 200rem;
 
-  &[data-clicked-nav="0"] > .project-wrapper {
-    display: grid;
+  &[data-clicked-nav="0"] > .about-wrapper {
+    display: flex;
   }
 
-  &[data-clicked-nav="1"] > .about-wrapper {
-    display: flex;
+  &[data-clicked-nav="1"] > .project-wrapper {
+    display: grid;
   }
 
   &[data-clicked-nav="2"] > .contact-wrapper {
@@ -56,6 +56,7 @@ body {
     .intro-title {
       color: $color-white;
       user-select: none;
+      cursor: pointer;
     }
 
     .intro-name {
@@ -97,7 +98,7 @@ body {
 
     .project-shade-top {
       width: 100%;
-      height: 2px;
+      height: 0px;
       background-color: $color-black;
       position: absolute;
       top: 0;
@@ -111,7 +112,7 @@ body {
 
     .project-shade-bottom {
       width: 100%;
-      height: 2px;
+      height: 0px;
       background-color: $color-black;
       position: absolute;
       bottom: 0;
@@ -270,7 +271,7 @@ body {
     justify-content: center;
     color: white;
     display: none;
-    opacity: 0;
+    // opacity: 0;
     animation: aboutWrapper $animation-transition
       cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal forwards;
     // overflow-y: scroll;
@@ -369,8 +370,8 @@ body {
       }
 
       &[data-active-index="1"] > .clicked {
-        width: 64px;
-        left: 94px;
+        width: 78px;
+        left: 78px;
       }
 
       &[data-active-index="2"] > .clicked {
@@ -380,16 +381,17 @@ body {
 
       &[data-active-index="3"] > .clicked {
         left: 222px;
+        width: 78px;
       }
 
       /* When navigation is unhovered */
 
       &[data-active-index="0"] > .hover-dot {
-        left: 57px;
+        left: 50px;
       }
 
       &[data-active-index="1"] > .hover-dot {
-        left: 123px;
+        left: 115px;
       }
 
       &[data-active-index="2"] > .hover-dot {
@@ -403,11 +405,11 @@ body {
       /* When navigation is hovered */
 
       &[data-hover-index="0"] > .hover-dot {
-        left: 57px;
+        left: 50px;
       }
 
       &[data-hover-index="1"] > .hover-dot {
-        left: 123px;
+        left: 115px;
       }
 
       &[data-hover-index="2"] > .hover-dot {
@@ -488,7 +490,7 @@ body {
         position: absolute;
         width: 7px;
         height: 7px;
-        left: 55px;
+        left: 50px;
         top: -15px;
         border-radius: 50%;
         background-color: $primary-color;
@@ -500,10 +502,10 @@ body {
       .clicked {
         position: absolute;
         height: 35px;
-        width: 80px;
+        width: 65px;
         border-radius: 20px;
         z-index: -1;
-        left: 19px;
+        left: 20px;
         background-color: rgba(255, 255, 255, 0.1);
         transition: all $transition-cubic $animation-transition;
       }
