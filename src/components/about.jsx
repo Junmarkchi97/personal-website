@@ -72,12 +72,12 @@ function About() {
           <section className="carousel-slider">
             <div className="image-container">
               {tech.map((t, idx) => {
-                return <img src={t.src} key={idx} alt={t.alt}/>;
+                return <img src={t.src} key={idx} alt={t.alt} />;
               })}
             </div>
             <div className="image-container">
               {tech.map((t, idx) => {
-                return <img src={t.src} key={idx} alt={t.alt}/>;
+                return <img src={t.src} key={idx} alt={t.alt} />;
               })}
             </div>
           </section>
@@ -98,8 +98,9 @@ function About() {
                   <a
                     href="https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop"
                     target="_blank"
+                    aria-label="linkedin"
                   >
-                    <img src="profile.jpg" />
+                    <img src="profile.jpg" alt="photo of me" />
                   </a>
                   <div className="profile-details">
                     <span>Junmark Chi</span>
@@ -109,6 +110,7 @@ function About() {
                 <a
                   href="https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop"
                   target="_blank"
+                  aria-label="linkedin"
                 >
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
@@ -117,7 +119,11 @@ function About() {
                 I just started my journey into learning Three.js. I've always
                 been curious about how those excellent 3D websites are made....
               </p>
-              <img src="post/current.png" className="post-image" />
+              <img
+                src="post/current.png"
+                className="post-image"
+                alt="screenshot of a threejs course"
+              />
               <div className="post-footer"></div>
             </div>
           </div>
@@ -139,8 +145,9 @@ function About() {
                   <a
                     href="https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop"
                     target="_blank"
+                    aria-label="linkedin"
                   >
-                    <img src="profile.jpg" />
+                    <img src="profile.jpg" alt="photo of me" />
                   </a>
                   <div className="profile-details">
                     <span>Junmark Chi</span>
@@ -150,6 +157,7 @@ function About() {
                 <a
                   href="https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop"
                   target="_blank"
+                  aria-label="linkedin"
                 >
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
@@ -158,7 +166,11 @@ function About() {
                 I'm happy to share that I've obtained a Certificate of
                 Completion for Full Stack Web Development from Avion School!
               </p>
-              <img src="post/avion.jpg" className="post-image" />
+              <img
+                src="post/avion.jpg"
+                className="post-image"
+                alt="picture of my fullstack web development certificate from avion school"
+              />
               <div className="post-footer"></div>
             </div>
           </div>
@@ -176,7 +188,10 @@ function About() {
             <div className="cit-post">
               <div className="post-header">
                 <div className="header-profile">
-                  <img src="school.png" />
+                  <img
+                    src="school.png"
+                    alt="logo of cebu institute of technology university"
+                  />
                   <div className="profile-details">
                     <span>Cebu Institute of Technology-University</span>
                     <span>A top academic institution continuously...</span>
@@ -184,7 +199,11 @@ function About() {
                 </div>
                 <i className="fa-brands fa-linkedin"></i>
               </div>
-              <img src="post/cit.jpg" className="post-image" />
+              <img
+                src="post/cit.jpg"
+                className="post-image"
+                alt="cover photo of Cit-u welcome home wildcats"
+              />
               <div className="post-footer"></div>
             </div>
           </div>

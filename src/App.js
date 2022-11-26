@@ -241,13 +241,19 @@ function App() {
             );
           })}
           <div className="social-links">
-            <a href="https://github.com/Junmarkchi97" target="_blank" id="4">
+            <a
+              href="https://github.com/Junmarkchi97"
+              target="_blank"
+              id="4"
+              aria-label="github"
+            >
               <i className="fa-brands fa-github"></i>
             </a>
             <a
               href="https://www.linkedin.com/in/junmarkchi/"
               target="_blank"
               id="5"
+              aria-label="linkedin"
             >
               <i className="fa-brands fa-linkedin"></i>
             </a>

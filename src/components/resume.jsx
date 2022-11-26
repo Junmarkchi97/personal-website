@@ -4,7 +4,12 @@ import "../styles/resume.scss";
 function resume() {
   return (
     <div className="resume-container">
-      <a href="\Junmark Chi Resume.pdf" download="" className="resume-download">
+      <a
+        href="\Junmark Chi Resume.pdf"
+        download=""
+        className="resume-download"
+        aria-label="resume download"
+      >
         <i className="fa-solid fa-download"></i>
         <span>Download Resume</span>
       </a>
@@ -13,6 +18,7 @@ function resume() {
         className="new-tab"
         href="https://docs.google.com/document/d/e/2PACX-1vQh887q6qwAvGJvgE6eFVcD5vTMZOSB64uEIAK-wH5ecvQImyhkT2bm-aRju6IsfysQYKv42SCee6pi/pub"
         target="_blank"
+        aria-label="google document"
       >
         Open resume on web
       </a>

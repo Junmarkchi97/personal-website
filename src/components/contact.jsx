@@ -59,7 +59,9 @@ const ContactUs = () => {
         <div className="contact contact-email">
           <i className="fa-solid fa-envelope"></i>
           <span>Email:</span>
-          <a href="mailto:chijunmark97@gmail.com">chijunmark97@gmail.com</a>
+          <a href="mailto:chijunmark97@gmail.com" aria-label="email">
+            chijunmark97@gmail.com
+          </a>
         </div>
       </div>
       <form ref={form} onSubmit={sendEmail} className="contact-form">
