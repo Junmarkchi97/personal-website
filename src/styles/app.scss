@@ -1,7 +1,6 @@
 @import "./variables.scss";
 
 html {
-  scroll-behavior: smooth;
   overflow: hidden;
 }
 
@@ -10,6 +9,7 @@ html {
 *::after {
   box-sizing: border-box;
   list-style: none;
+  scroll-behavior: smooth;
   text-decoration: none;
 }
 
@@ -88,7 +88,7 @@ body {
   }
 
   .project-wrapper {
-    height: 70vh;
+    height: 80vh;
     display: grid;
     place-items: center;
     position: relative;
@@ -134,7 +134,7 @@ body {
       grid-template-rows: repeat(3, 280px);
       justify-content: center;
       overflow-y: scroll;
-      padding: 1rem;
+      // padding: 1rem;
       gap: 10px;
       transition: transform 1000ms $transition-cubic;
 
@@ -265,7 +265,7 @@ body {
   }
 
   .about-wrapper {
-    height: 70vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     color: white;
@@ -315,7 +315,7 @@ body {
     opacity: 0;
     animation: contactWrapper $animation-transition
       cubic-bezier(0.15, 0.54, 0.3, 0.9) 0s 1 normal forwards;
-    overflow-y: scroll;
+    // overflow-y: scroll;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -589,6 +589,10 @@ body {
     }
 
     .about-wrapper {
+      overflow-y: scroll;
+    }
+
+    .contact-wrapper {
       overflow-y: scroll;
     }
   }

@@ -158,10 +158,9 @@ function App() {
           JUNMARK <span>CHI</span>
         </div>
         <div className="intro-title" ref={introTitle}>
-          WEB DEVELOPER
+          FRONT-END DEVELOPER
         </div>
       </div>
-      11
       <div
         className="wrapper project-wrapper"
         ref={(e) => (wrapperRef.current[0] = e)}
@@ -187,7 +186,7 @@ function App() {
               >
                 <div className="project-border"></div>
                 <div className="project-content">
-                  <img className="gif" src={project.src} alt={project.alt} />
+                  {/* <img className="gif" src={project.src} alt={project.alt} /> */}
                 </div>
               </div>
             );

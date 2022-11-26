@@ -1,31 +1,35 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/about.scss";
 
 function About() {
   const aboutContainer = useRef(null);
   const posts = useRef([]);
   const [tech, setTech] = useState([
-    { src: "technologies/bootstrap.png" },
-    { src: "technologies/canva.png" },
-    { src: "technologies/css.png" },
-    { src: "technologies/git.png" },
+    // { src: "technologies/bootstrap.png" },
+    // { src: "technologies/canva.png" },
+    // { src: "technologies/git.png" },
     { src: "technologies/github.png" },
-    { src: "technologies/html.png" },
-    { src: "technologies/insomnia.png" },
+    // { src: "technologies/insomnia.png" },
     { src: "technologies/javascript.png" },
-    { src: "technologies/mysql.png" },
-    { src: "technologies/netlify.png" },
-    { src: "technologies/node.png" },
-    { src: "technologies/postgresql.png" },
-    { src: "technologies/postman.png" },
-    { src: "technologies/rails.png" },
+    { src: "technologies/typescript.png" },
     { src: "technologies/react.png" },
+    { src: "technologies/html.png" },
+    { src: "technologies/css.png" },
+    { src: "technologies/sass.png" },
+    { src: "technologies/tailwind.png" },
+    // { src: "technologies/mysql.png" },
+    // { src: "technologies/netlify.png" },
+    // { src: "technologies/node.png" },
+    // { src: "technologies/postgresql.png" },
+    // { src: "technologies/postman.png" },
+    { src: "technologies/rails.png" },
     { src: "technologies/ruby.png" },
-    // { src: "technologies/sass.png" },
-    // { src: "technologies/tailwind.png" },
-    // { src: "technologies/typescript.png" },
     // { src: "technologies/vscode.png" },
   ]);
+
+  useEffect(() => {
+    // aboutContainer.current.scrollTop(0);
+  }, []);
 
   const handleOnScrollAbout = () => {
     const scrollValue = aboutContainer.current.scrollTop;
@@ -59,16 +63,23 @@ function About() {
         </h3>
         <h3>
           Creative and Responsible Web Developer based in Philippines. I help
-          clients develop websites from the ground up.
+          clients develop websites from the ground up with clean UI/UX.
         </h3>
       </div>
       <div className="container technology-container">
         <h2 className="technology-title">Technologies</h2>
         <div className="technologies-logo">
           <section className="carousel-slider">
-            {tech.map((t, idx) => {
-              return <img src={t.src} key={idx} />;
-            })}
+            <div className="image-container">
+              {tech.map((t, idx) => {
+                return <img src={t.src} key={idx} />;
+              })}
+            </div>
+            <div className="image-container">
+              {tech.map((t, idx) => {
+                return <img src={t.src} key={idx} />;
+              })}
+            </div>
           </section>
         </div>
       </div>

@@ -59,18 +59,83 @@
 
   .technology-container {
     width: 50rem;
+    max-width: 90%;
+    height: 11rem;
     opacity: 0;
+    overflow: hidden;
+    position: relative;
+
+    &::before{
+      content: "";
+      height: 100%;
+      width: 0px;
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      box-shadow: 0 0 100px 50px $color-black;
+    }
+
+    &::after{
+      content: "";
+      height: 100%;
+      width: 0px;
+      background-color: transparent;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      box-shadow: 0 0 100px 50px $color-black;
+    }
 
     .technology-title {
       color: $primary-color;
       text-align: center;
-      margin-top: 2em;
+      margin-top: 1em;
     }
 
     .technologies-logo {
       color: rgba(255, 255, 255, 0.3);
-      img {
-        height: 3em;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      height: auto;
+
+      .carousel-slider {
+        display: flex;
+        position: absolute;
+        left: 0;
+        width: 200%;
+
+        animation: marquee 20s linear infinite;
+        gap: 1em;
+
+        .image-container {
+          width: 50%;
+          display: flex;
+          justify-content: space-around;
+          gap: 1rem;
+
+          img {
+            width: 4rem;
+            user-select: none;
+            opacity: 0.5;
+            transition: 300ms;
+
+            &:hover {
+              filter: drop-shadow(0 0 15px $primary-color);
+              opacity: 2;
+            }
+          }
+        }
+
+        @keyframes marquee {
+          from {
+            left: 0;
+          }
+          to {
+            left: -100%;
+          }
+        }
       }
     }
   }
@@ -81,7 +146,7 @@
     .timeline-title {
       color: $primary-color;
       text-align: center;
-      margin-top: 3em;
+      margin-top: 2em;
     }
 
     .current {
