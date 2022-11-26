@@ -129,8 +129,11 @@ function App() {
   };
 
   const handleProjectClick = (e) => {
-    // e.target.classList.add("selected")
-    console.log(e.target);
+    projectWrapper.current.toggleAttribute("clicked");
+
+    // projectContainer.current.classList.toggle("transform-backwards");
+
+    // console.log(e.target);
   };
 
   const handleProjectMouseMove = (e) => {
@@ -176,10 +179,7 @@ function App() {
       >
         <About />
       </div>
-      <div
-        className="wrapper project-wrapper"
-        ref={(e) => (wrapperRef.current[0] = e)}
-      >
+      <div className="wrapper project-wrapper" ref={projectWrapper}>
         <div className="project-shade-top" ref={projectShadeTop}></div>
         <div
           className="project-container"
