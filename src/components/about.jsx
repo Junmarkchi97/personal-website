@@ -9,21 +9,21 @@ function About() {
     // { src: "technologies/canva.png" },
     // { src: "technologies/git.png" },
     // { src: "technologies/insomnia.png" },
-    { src: "technologies/tailwind.png" },
-    { src: "technologies/javascript.png" },
-    { src: "technologies/typescript.png" },
-    { src: "technologies/react.png" },
-    { src: "technologies/html.png" },
-    { src: "technologies/css.png" },
-    { src: "technologies/sass.png" },
+    { src: "technologies/tailwind.png", alt: "tailwind logo" },
+    { src: "technologies/javascript.png", alt: "javascript logo" },
+    { src: "technologies/typescript.png", alt: "typescript logo" },
+    { src: "technologies/react.png", alt: "react logo" },
+    { src: "technologies/html.png", alt: "html logo" },
+    { src: "technologies/css.png", alt: "css logo" },
+    { src: "technologies/sass.png", alt: "sass logo" },
     // { src: "technologies/mysql.png" },
     // { src: "technologies/netlify.png" },
     // { src: "technologies/node.png" },
     // { src: "technologies/postgresql.png" },
     // { src: "technologies/postman.png" },
-    { src: "technologies/rails.png" },
-    { src: "technologies/ruby.png" },
-    { src: "technologies/github.png" },
+    { src: "technologies/rails.png", alt: "rails logo" },
+    { src: "technologies/ruby.png", alt: "ruby logo" },
+    { src: "technologies/github.png", alt: "github logo" },
     // { src: "technologies/vscode.png" },
   ]);
 
@@ -72,12 +72,12 @@ function About() {
           <section className="carousel-slider">
             <div className="image-container">
               {tech.map((t, idx) => {
-                return <img src={t.src} key={idx} />;
+                return <img src={t.src} key={idx} alt={t.alt}/>;
               })}
             </div>
             <div className="image-container">
               {tech.map((t, idx) => {
-                return <img src={t.src} key={idx} />;
+                return <img src={t.src} key={idx} alt={t.alt}/>;
               })}
             </div>
           </section>
