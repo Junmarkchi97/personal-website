@@ -170,7 +170,7 @@ function App() {
           ref={introTitle}
           onClick={handleClickHeader}
         >
-          FRONT END DEVELOPER
+          SOFTWARE ENGINEER
         </div>
       </div>
       <div
