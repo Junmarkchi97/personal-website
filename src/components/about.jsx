@@ -62,8 +62,8 @@ function About() {
           Hello, I'm<span>Junmark !</span>
         </h3>
         <h3>
-          Creative and Responsible Web Developer based in Philippines. I help
-          clients develop websites from the ground up with clean UI/UX.
+          Creative and Responsible Software Engineer based in Philippines. I
+          help clients develop websites from the ground up with clean UI/UX.
         </h3>
       </div>
       <div className="container technology-container">
