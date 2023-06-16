@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 .about-container {
   width: 100%;
@@ -8,7 +8,7 @@
   place-items: center;
 
   &::before {
-    content: "";
+    content: '';
     height: 0px;
     width: 100%;
     background-color: transparent;
@@ -59,7 +59,7 @@
       span {
         margin-left: 0.3em;
         font-size: 2em;
-        font-family: "Dancing Script", cursive;
+        font-family: 'Dancing Script', cursive;
         color: $primary-color;
       }
     }
@@ -79,7 +79,7 @@
     position: relative;
 
     &::before {
-      content: "";
+      content: '';
       height: 100%;
       width: 0px;
       background-color: transparent;
@@ -90,7 +90,7 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       height: 100%;
       width: 0px;
       background-color: transparent;
@@ -119,9 +119,10 @@
         left: 0;
         width: 200%;
 
-        &:hover {
-          animation-play-state: paused;
-        }
+        // &:hover {
+        //   animation-play-state: paused;
+        // }
+
         animation: marquee 20s linear infinite;
 
         @keyframes marquee {
@@ -189,7 +190,7 @@
         border-left: 1px solid $primary-color;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           border: 1px solid white;
           background-color: $primary-color;
@@ -221,6 +222,7 @@
               a {
                 display: inherit;
                 align-items: center;
+
                 img {
                   width: 2.5rem;
                   height: 2.5rem;
@@ -314,7 +316,7 @@
         border-left: 1px solid $text-dark-color2;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           border: 1px solid white;
           background-color: $background-color2;
@@ -443,7 +445,7 @@
         // border-left: 1px solid $text-dark-color2;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           border: 1px solid white;
           background-color: $background-color2;

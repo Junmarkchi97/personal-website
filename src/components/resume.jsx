@@ -1,24 +1,25 @@
-import React from "react";
-import "../styles/resume.scss";
+import React from 'react';
+import '../styles/resume.scss';
 
 function resume() {
   return (
-    <div className="resume-container">
+    <div className='resume-container'>
       <a
-        href="\Junmark Chi Resume.pdf"
-        download=""
-        className="resume-download"
-        aria-label="resume download"
+        href='\Junmark Chi Resume.pdf'
+        download=''
+        className='resume-download'
+        aria-label='resume download'
       >
-        <i className="fa-solid fa-download"></i>
+        <i className='fa-solid fa-download'></i>
         <span>Download Resume</span>
       </a>
       <h6>OR</h6>
       <a
-        className="new-tab"
-        href="https://docs.google.com/document/d/e/2PACX-1vQh887q6qwAvGJvgE6eFVcD5vTMZOSB64uEIAK-wH5ecvQImyhkT2bm-aRju6IsfysQYKv42SCee6pi/pub"
-        target="_blank"
-        aria-label="google document"
+        className='new-tab'
+        href='https://docs.google.com/document/d/e/2PACX-1vQh887q6qwAvGJvgE6eFVcD5vTMZOSB64uEIAK-wH5ecvQImyhkT2bm-aRju6IsfysQYKv42SCee6pi/pub'
+        target='_blank'
+        aria-label='google document'
+        rel='noreferrer'
       >
         Open resume on web
       </a>

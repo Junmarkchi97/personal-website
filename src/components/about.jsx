@@ -1,35 +1,25 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import '../styles/about.scss';
 
 function About() {
   const aboutContainer = useRef(null);
   const posts = useRef([]);
-  const [tech, setTech] = useState([
-    // { src: "technologies/bootstrap.png" },
-    // { src: "technologies/canva.png" },
-    // { src: "technologies/git.png" },
-    // { src: "technologies/insomnia.png" },
-    { src: 'technologies/tailwind.png', alt: 'tailwind logo' },
-    { src: 'technologies/javascript.png', alt: 'javascript logo' },
-    { src: 'technologies/typescript.png', alt: 'typescript logo' },
-    { src: 'technologies/react.png', alt: 'react logo' },
-    { src: 'technologies/html.png', alt: 'html logo' },
-    { src: 'technologies/css.png', alt: 'css logo' },
-    { src: 'technologies/sass.png', alt: 'sass logo' },
-    // { src: "technologies/mysql.png" },
-    // { src: "technologies/netlify.png" },
-    // { src: "technologies/node.png" },
-    // { src: "technologies/postgresql.png" },
-    // { src: "technologies/postman.png" },
-    { src: 'technologies/rails.png', alt: 'rails logo' },
-    { src: 'technologies/ruby.png', alt: 'ruby logo' },
-    { src: 'technologies/github.png', alt: 'github logo' },
-    // { src: "technologies/vscode.png" },
-  ]);
+  const tech = [
+    { src: 'svgs/tailwind.svg', alt: 'tailwind logo' },
+    { src: 'svgs/javascript.svg', alt: 'javascript logo' },
+    { src: 'svgs/reactjs.svg', alt: 'reactjs logo' },
+    { src: 'svgs/nextjs.svg', alt: 'nextjs logo' },
+    { src: 'svgs/typescript.svg', alt: 'typescript logo' },
+    { src: 'svgs/html.svg', alt: 'html logo' },
+    { src: 'svgs/css.svg', alt: 'css logo' },
+    { src: 'svgs/sass.svg', alt: 'sass logo' },
+    { src: 'svgs/rails.svg', alt: 'rails logo' },
+    { src: 'svgs/github.svg', alt: 'github logo' },
+  ];
 
-  useEffect(() => {
-    // aboutContainer.current.scrollTop(0);
-  }, []);
+  // useEffect(() => {
+  //   // aboutContainer.current.scrollTop(0);
+  // }, []);
 
   const handleOnScrollAbout = () => {
     const scrollValue = aboutContainer.current.scrollTop;
@@ -61,7 +51,7 @@ function About() {
         <h3>
           Hello, I'm<span>Junmark !</span>
         </h3>
-        <h3>
+        <p>
           As an Electrical Engineering graduate, I have a strong foundation in
           problem-solving, critical thinking, and technical knowledge. My
           fascination with the software controlling electrical systems led me to
@@ -76,7 +66,7 @@ function About() {
           and hardware systems. I am excited to continue learning and growing as
           a software developer while contributing to the technological
           advancements of our time.
-        </h3>
+        </p>
       </div>
       <div className='container technology-container'>
         <h2 className='technology-title'>Technologies</h2>
@@ -97,6 +87,7 @@ function About() {
       </div>
       <div className='container timeline-container'>
         <h2 className='timeline-title'>Timeline</h2>
+
         <div className='current' ref={(e) => (posts.current[0] = e)}>
           <div className='current-date'>Currently</div>
           <div className='current-info'>
@@ -110,9 +101,10 @@ function About() {
                   <a
                     href='https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop'
                     target='_blank'
+                    rel='noreferrer'
                     aria-label='linkedin'
                   >
-                    <img src='profile.jpg' alt='photo of me' />
+                    <img src='images/profile.png' alt='Junmark Chi' />
                   </a>
                   <div className='profile-details'>
                     <span>Junmark Chi</span>
@@ -122,6 +114,7 @@ function About() {
                 <a
                   href='https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop'
                   target='_blank'
+                  rel='noreferrer'
                   aria-label='linkedin'
                 >
                   <i className='fa-brands fa-linkedin'></i>
@@ -140,6 +133,7 @@ function About() {
             </div>
           </div>
         </div>
+
         <div className='avion' ref={(e) => (posts.current[1] = e)}>
           <div className='avion-date'>
             <p>7 Months</p>
@@ -157,9 +151,10 @@ function About() {
                   <a
                     href='https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop'
                     target='_blank'
+                    rel='noreferrer'
                     aria-label='linkedin'
                   >
-                    <img src='profile.jpg' alt='photo of me' />
+                    <img src='images/profile.png' alt='Junmark Chi' />
                   </a>
                   <div className='profile-details'>
                     <span>Junmark Chi</span>
@@ -169,6 +164,7 @@ function About() {
                 <a
                   href='https://www.linkedin.com/posts/junmarkchi_webdevelopment-fullstackdeveloper-bootcamp-activity-6992478042619031552-kdtL?utm_source=share&utm_medium=member_desktop'
                   target='_blank'
+                  rel='noreferrer'
                   aria-label='linkedin'
                 >
                   <i className='fa-brands fa-linkedin'></i>
@@ -181,12 +177,13 @@ function About() {
               <img
                 src='post/avion.jpg'
                 className='post-image'
-                alt='picture of my fullstack web development certificate from avion school'
+                alt='fullstack web development certificate from avion school'
               />
               <div className='post-footer'></div>
             </div>
           </div>
         </div>
+
         <div className='cit' ref={(e) => (posts.current[2] = e)}>
           <div className='cit-date'>
             <p>5 Years</p>
@@ -201,7 +198,7 @@ function About() {
               <div className='post-header'>
                 <div className='header-profile'>
                   <img
-                    src='school.png'
+                    src='images/school.png'
                     alt='logo of cebu institute of technology university'
                   />
                   <div className='profile-details'>
@@ -214,7 +211,7 @@ function About() {
               <img
                 src='post/cit.jpg'
                 className='post-image'
-                alt='cover photo of Cit-u welcome home wildcats'
+                alt='CIT-U welcome home wildcats'
               />
               <div className='post-footer'></div>
             </div>
