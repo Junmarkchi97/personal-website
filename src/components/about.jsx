@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import '../styles/about.scss';
+import contents from '../components/data/contants';
 
 function About() {
   const aboutContainer = useRef(null);
@@ -17,27 +18,19 @@ function About() {
     { src: 'svgs/github.svg', alt: 'github logo' },
   ];
 
-  // useEffect(() => {
-  //   // aboutContainer.current.scrollTop(0);
-  // }, []);
-
   const handleOnScrollAbout = () => {
     const scrollValue = aboutContainer.current.scrollTop;
     const maxVal =
       aboutContainer.current.scrollHeight - aboutContainer.current.clientHeight;
+    const scrollLength = maxVal / contents.length + 50;
+    const onScrollVal = Math.ceil(scrollValue / scrollLength);
 
-    if (scrollValue <= maxVal * 0.5) {
-      posts.current[0].style.opacity = '1';
-      posts.current[1].style.opacity = '0.4';
-      posts.current[2].style.opacity = '0.4';
-    } else if (scrollValue <= maxVal * 0.95 && scrollValue >= maxVal * 0.5) {
-      posts.current[0].style.opacity = '0.4';
-      posts.current[1].style.opacity = '1';
-      posts.current[2].style.opacity = '0.4';
-    } else {
-      posts.current[0].style.opacity = '0.4';
-      posts.current[1].style.opacity = '0.4';
-      posts.current[2].style.opacity = '1';
+    for (let i = 0; i <= contents.length; i++) {
+      if (i === onScrollVal) {
+        posts.current[onScrollVal].style.opacity = '1';
+      } else {
+        posts.current[i].style.opacity = '0.4';
+      }
     }
   };
 
@@ -88,7 +81,49 @@ function About() {
       <div className='container timeline-container'>
         <h2 className='timeline-title'>Timeline</h2>
 
-        <div className='current' ref={(e) => (posts.current[0] = e)}>
+        {contents.map((item, i) => (
+          <div className='current' ref={(e) => (posts.current[i] = e)}>
+            <div className='current-date'>{item.date}</div>
+            <div className='current-info'>
+              <div className='caption'>{item.description}</div>
+              <div className='post'>
+                <div className='post-header'>
+                  <div className='header-profile'>
+                    <a
+                      href='https://www.linkedin.com/posts/junmarkchi_threejs-learningeveryday-activity-6994239516475617280-U1nv?utm_source=share&utm_medium=member_desktop'
+                      target='_blank'
+                      rel='noreferrer'
+                      aria-label='linkedin'
+                    >
+                      <img src='images/profile.png' alt='Junmark Chi' />
+                    </a>
+                    <div className='profile-details'>
+                      <span>Junmark Chi</span>
+                      <span>Web Developer | NextJS | TailwindCSS</span>
+                    </div>
+                  </div>
+                  <a
+                    href={`${item.link}`}
+                    target='_blank'
+                    rel='noreferrer'
+                    aria-label='linkedin'
+                  >
+                    <i className='fa-brands fa-linkedin'></i>
+                  </a>
+                </div>
+                <p className='post-caption'>{item.caption}</p>
+                <img
+                  src={`${item.image}`}
+                  className='post-image'
+                  alt={`${item.alt}`}
+                />
+                <div className='post-footer'></div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* <div className='current' ref={(e) => (posts.current[0] = e)}>
           <div className='current-date'>Currently</div>
           <div className='current-info'>
             <div className='current-caption'>
@@ -183,8 +218,8 @@ function About() {
             </div>
           </div>
         </div>
-
-        <div className='cit' ref={(e) => (posts.current[2] = e)}>
+*/}
+        <div className='cit' ref={(e) => (posts.current[contents.length] = e)}>
           <div className='cit-date'>
             <p>5 Years</p>
             <p>2014 - 2019</p>

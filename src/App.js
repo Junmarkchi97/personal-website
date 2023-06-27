@@ -151,9 +151,9 @@ function App() {
 
   return (
     <div id='app' ref={app}>
-      <div className='view-project-cursor' ref={viewProjectCursor}>
+      <span className='view-project-cursor' ref={viewProjectCursor}>
         View Project
-      </div>
+      </span>
 
       <section className='intro-container' ref={introContainer}>
         <div className='intro-name' ref={introName} onClick={handleClickHeader}>
@@ -168,6 +168,7 @@ function App() {
         </div>
       </section>
 
+      {/* ABOUT */}
       <section
         className='wrapper about-wrapper'
         ref={(e) => (wrapperRef.current[1] = e)}
@@ -175,6 +176,7 @@ function App() {
         <About />
       </section>
 
+      {/* PROJECTS */}
       <section className='wrapper project-wrapper' ref={projectWrapper}>
         <div className='project-shade-top' ref={projectShadeTop}></div>
         <div
@@ -206,6 +208,7 @@ function App() {
         <div className='project-shade-bottom' ref={projectShadeBottom}></div>
       </section>
 
+      {/* CONTACT */}
       <section
         className='wrapper contact-wrapper'
         ref={(e) => (wrapperRef.current[2] = e)}
@@ -213,6 +216,7 @@ function App() {
         <Contact />
       </section>
 
+      {/* RESUME */}
       <section
         className='wrapper resume-wrapper'
         // ref={(e) => (wrapperRef.current[3] = e)}
