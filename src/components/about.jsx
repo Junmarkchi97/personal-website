@@ -55,8 +55,7 @@ function About() {
           <br></br>
           <br></br>
           My electrical engineering background gives me a unique perspective on
-          software development, allowing me to bridge the gap between software
-          and hardware systems. I am excited to continue learning and growing as
+          software development. I am excited to continue learning and growing as
           a software developer while contributing to the technological
           advancements of our time.
         </p>
@@ -82,7 +81,7 @@ function About() {
         <h2 className='timeline-title'>Timeline</h2>
 
         {contents.map((item, i) => (
-          <div className='current' ref={(e) => (posts.current[i] = e)}>
+          <div key={i} className='current' ref={(e) => (posts.current[i] = e)}>
             <div className='current-date'>{item.date}</div>
             <div className='current-info'>
               <div className='caption'>{item.description}</div>
