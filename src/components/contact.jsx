@@ -15,12 +15,6 @@ const ContactUs = () => {
     e.preventDefault();
     setSending(true);
 
-    console.log(
-      process.env.REACT_APP_SERVICE_ID,
-      process.env.REACT_APP_TEMPLATE_ID,
-      process.env.REACT_APP_PUBLIC_KEY
-    );
-
     emailjs
       .sendForm(
         `${process.env.REACT_APP_SERVICE_ID}`,
